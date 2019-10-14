@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>CKAN</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+   <!-- Costome CSS -->
+   <link rel="stylesheet" type="text/css" href="freestyle.css">
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <img class="logo" src="choi.png" alt="메인 로고" ></img>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ckan.html">CKAN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="diary.html">Diary</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class= "mt-5">
+        <h1>CKAN(Comprehensive Knowledge Archive Network)</h1>
+        <h3>CKAN은 데이터 허브 및 데이터 포털을 위한 오픈 소스 DMS (데이터 관리 시스템)입니다. </h3>
+      </div>
+      <div class= "mt-5">
+        <table class="table table-bordered">
+          <caption>List of CKAN Extensions</caption>
+            <thead>
+              <tr>
+                <th>이름</th>
+                <th>기능</th>
+                <th>참고</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>DataStore</th>
+                <th>CKAN DataStore 확장은 CKAN 자원에서 구조화 된 데이터를 저장하기위한 임시 데이터베이스, 리소스 파일에서 데이터를 가져와서 DataStore에 저장할 수 있음.</th>
+                <th><a href="https://docs.ckan.org/en/2.8/maintaining/datastore.html">Datastore 공식 문서</a></th>
+              </tr>
+              <tr>
+                <th>DataPusher</th>
+                <th>자동적으로 CKAN instance의 리소스를 Datastore에 저장하도록 도움을 주는 standalone web service</th>
+                <th><a href="https://docs.ckan.org/en/2.8/maintaining/datastore.html#datapusher-automatically-add-data-to-the-datastore">DataPusher 공식 문서</a></th>
+              </tr>
+              <tr>
+                <th>Havest</th>
+                <th> ckan 확장을위한 data-sharing 프레임 워크를 제공하고 수확 소스 및 작업을 관리하기 위해 CLI 및 WUI를 CKAN에 추가하여 관리함.</th>
+                <th><a href="https://github.com/ckan/ckanext-harvest">Harvest github</a></th>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="3"><a href="https://github.com/ckan/ckan">More information about CKAN</a></th>
+              </tr>
+            </tfoot>  
+        </table>
+      </div>
+      </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

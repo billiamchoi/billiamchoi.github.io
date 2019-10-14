@@ -1,0 +1,19 @@
+body {
+  background-color: linen;
+  text-align: center;
+}
+
+img {
+  width: 150px;
+  height: auto;
+}
+
+div.mt-2.col-5 {
+  font-size: 150%
+}
+
+img.logo {
+  width: 100px;
+  height: auto;
+}
+
