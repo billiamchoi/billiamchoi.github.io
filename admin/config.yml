@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: master # 콘텐츠가 저장될 브랜치
+  repo: "billiamchoi/billiamchoi.github.io" # GitHub 사용자명과 저장소명으로 변경
+  identity_url: "https://jovial-baklava-9d602f.netlify.app/.netlify/identity" # Netlify Identity URL
+
+media_folder: "static/img"
+public_folder: "/img"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
