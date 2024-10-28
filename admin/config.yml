@@ -1,17 +1,17 @@
 backend:
-  name: github
+  name: gihhub
   repo: "billiamchoi/billiamchoi.github.io" # GitHub 사용자명과 저장소명
   branch: master # 콘텐츠가 저장될 브랜치
 
-media_folder: "static/img"
-public_folder: "/img"
+media_folder: "static/images/uploads" # Folder for uploaded images
+public_folder: "/images/uploads" # Public path for images
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
-    create: true
-    slug: "{{slug}}"
+  - name: "blog" # Name in the Netlify CMS UI
+    label: "Blog Posts" # Label in the Netlify CMS UI
+    folder: "_posts" # Folder where posts are stored
+    create: true # Allow new posts to be created
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
