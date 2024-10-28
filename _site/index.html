@@ -1,82 +1,163 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Jekyll Netlify CMS | This is the basic Jekyll starter site, with Netlify CMS integrated and using Netlify Identity for authentication.</title>
-<meta name="generator" content="Jekyll v3.10.0" />
-<meta property="og:title" content="Jekyll Netlify CMS" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="This is the basic Jekyll starter site, with Netlify CMS integrated and using Netlify Identity for authentication." />
-<meta property="og:description" content="This is the basic Jekyll starter site, with Netlify CMS integrated and using Netlify Identity for authentication." />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Jekyll Netlify CMS" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Jekyll Netlify CMS" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"This is the basic Jekyll starter site, with Netlify CMS integrated and using Netlify Identity for authentication.","headline":"Jekyll Netlify CMS","name":"Jekyll Netlify CMS","url":"http://localhost:4000/"}</script>
-<!-- End Jekyll SEO tag -->
+	<meta charset="utf-8">
+    <!-- user-scalable 을 사용하지 않는 디바이스를 위해, maximun-scale/minimum-scale 설정을 하는 것입니다-->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="코딩독학" /><!-- 일반적인 Fabicon 설정. (인터넷 탭창 또는 주소창에 표기되는 아이콘) -->
+	<link rel="icon" href="http://localhost:4000/assets/img/infos/kobugi_col_small_QMT_icon.ico" />
+	<!-- 아이폰용 Fabicon 설정 -->
+	<link rel="apple-touch-icon" href="http://localhost:4000/assets/img/infos/kobuki_col_small_Eqw_icon.ico" />
+	<!-- 인터넷 익스플로러 Fabicon -->
+	<link rel="short icon" type="image/x-icon" href="http://localhost:4000/assets/img/infos/kobuki_col_small_Eqw_icon.ico" />
 
-  <link rel="stylesheet" href="/assets/main.css">
-  <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Jekyll Netlify CMS" />
+    <!-- Open Graph (Facebook, Linkedin) https://ogp.me/#types -->
+    <!-- https://ourcodeworld.com/public-media/articles/articleocw-56d1a6901b773.png -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="코딩독학 - 느려도 꾸준히" /> 
+    <meta property="og:description" content="코딩독학" />
+    <meta property="og:image" content="http://localhost:4000/assets/img/infos/kobugi-left-small.png" />
+    <meta property="og:url" content="http://localhost:4000/" />
+    <meta property="og:site_name" content="코딩독학" />
+
+    <!-- Twitter card (Twitter) -->
+    <!-- https://csharpcorner-mindcrackerinc.netdna-ssl.com/article/twitter-cards-implementation-with-websites/Images/summary_card_tweet.png -->
+    <!-- Card 종류 : Summary, Photo, Player -->
+    <meta name="twitter:card" content="Summary" />    
+    <meta name="twitter:title" content="코딩독학 - 느려도 꾸준히" /> 
+    <meta name="twitter:description" content="코딩독학" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/img/infos/kobuk.png" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
   
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-</head><body><header class="site-header" role="banner">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Jekyll Netlify CMS</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
+    <!-- <META http-equiv="Cache-Control" content="max-age=86400"> -->
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <div class="home">
-<h2 class="post-list-heading">Posts</h2>
-    <ul class="post-list"><li><span class="post-meta">Feb 23, 2018</span>
-        <h3>
-          <a class="post-link" href="/jekyll/update/2018/02/23/welcome-to-jekyll.html">
-            Welcome to Jekyll!
-          </a>
-        </h3></li></ul>
+    <link rel="preload" href="/assets/fonts/SBAggroL.woff" as="font" type="font/woff" crossorigin>
+    <link href="/public/css/critical-Style.css" rel="preload stylesheet" as="style">
 
-    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
+    <!-- https://fontawesome.com/ -->
+    <!-- <script defer src="https://kit.fontawesome.com/d1a2641fbd.js" crossorigin="anonymous"></script> -->
+    <script defer src="/public/js/all.min.js"></script>
 
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+</head>
+<style>@import url(/public/css/syntax/github.css);</style>
+  <title>코딩독학</title>
+ 
+  <link href="/public/css/all.min.css" rel="preeload" as="style" >
+  <link href="/public/css/style.css" rel="preload stylesheet" as="style"> 
+  
+  <body>
+   <div class="container"> 
+      <div class="sidebar" id="sidebar-id">
+        <script defer src="/public/js/sidebar.js"></script>
 
-  <div class="wrapper">
 
-    <h2 class="footer-heading">Jekyll Netlify CMS</h2>
+<div class="sidebar-item sidebar-header">
+	<div class='sidebar-brand'>
+		<a href="/"><img src="\assets\img\infos\kobugi-left-small.png" ></a>
+	</div>
+	<p class="lead">느려도 괜찮아,<br>꾸준히 코딩독학</p></div>
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Jekyll Netlify CMS</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li><li><a href="/feed.xml"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#rss"></use></svg> <span>rss</span></a></li></ul>
+<div class="sidebar-item sidebar-nav">
+  	<ul class="nav">
+		<li class="nav-title">카테고리</a></li>
+		<li class="sidebar-item-list home">
+			<a class="nav-item" href="/">
+				<div class="nav-img"><i class="fas fa-home fa-2x"></i></div>
+				<span id="nav-item-name-home" class="name">홈으로</span>
+			</a>
+		</li>
+		<li class="sidebar-item-list develop">
+			<a class="nav-item" href="/category/#develop">
+				<div  class="nav-img"><i class="fas fa-code fa-2x"></i></div>
+				<span id="nav-item-name-develop" class="name">개발 일기</span>
+			</a>
+		</li>
+		<li class="sidebar-item-list bugs">
+			<a class="nav-item" href="/category/#bugs">
+				<div  class="nav-img"><i class="fas fa-bug fa-2x"></i></div>
+				<span id="nav-item-name-bugs" class="name">문제 해결</span>
+			</a>
+		</li>
+		<li class="sidebar-item-list study">
+			<a class="nav-item" href="/category/#study">
+				<div  class="nav-img"><i class="fas fa-book-reader fa-2x"></i></div >
+				<span id="nav-item-name-study" class="name">개발 지식</span>
+			</a>
+		</li>
+		<li class="sidebar-item-list search">
+			<a class="nav-item" href="/search/">
+				<div  class="nav-img"><i class="fas fa-search fa-2x"></i></div>
+				<span id="nav-item-name-search" class="name">검색</span>
+			</a>
+		</li>
+	  </nav>
+	</ul>
 </div>
 
-      <div class="footer-col footer-col-3">
-        <p>This is the basic Jekyll starter site, with Netlify CMS integrated and using Netlify Identity for authentication.</p>
+<!-- 방문자 카운터
+<div class="sidebar-counter">
+	<a href="https://hits.seeyoufarm.com">
+		<img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmartinkang%2Fmartinkang.github.io&count_bg=%231D256A&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/>
+	</a>
+</div> -->
+
+<!-- <div class="sidebar-item sidebar-footer">
+	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
+</div> -->
       </div>
-    </div>
+      <div class="content">
+        <article class="post">
+  <header class="post-header home">
+    <div class="post-title">코딩독학</div>
+  </header>
+<p>
+  <H1> 코딩독학</H1>
+  비전공자로 2014년 부터 데이터 분산관리 개발자로 재직중.<br>
+  스스로 까먹지 않기 위하여 개발한 과정과, 공부한 내용들을 정리할 것.<br>
+  나같은 비전공자를 기준으로 기록할 예정.<br>
+  <br>
+</p>
+<p>
+  <H1><i class="fas fa-code"></i> 개발 일기</H1>
+  실제로 설계/개발 하는 과정을 순차적으로 쓸 예정. <br>
+  1. 프론트 엔드 개발기 : GitHub 블로그를 제작 과정.<br>
+  2. 풀스택 개발기 : 직접 웹 호스팅과 Docker, 프론트/백 엔드를 이용하여 나만의 사이트 제작 과정.<br>
+  3. Discord 봇 개발기 : 봇 제작이 자유로운 Discord 메신저에 나만의 봇을 제작 과정.<br>
+  <br>
+</p>
 
-  </div>
+<p>
+  <H1><i class="fas fa-bug"></i> 문제 해결</H1>
+  위의 개발일기 과정에서 실제로 발생한 문제와, 이를 해결하는 과정을 쓸 예정.<br>
+  본업에서 인상 깊었던 버그와 이를 처리한 과정 역시 남길 예정.<br>
+  <br>
+</p>
 
-</footer>
-</body>
+<p>
+  <H1><i class="fas fa-book-reader"></i> 개발 지식</H1>
+  개발을 하면서 필요한 지식과, 내가 독학하면서 정리한 지식들 등을 다룰 예정이다.<br>
+  주로 공부한 책을 정리할 예정이고, 개발에 꼭 중요하다 생각하는 내용들을 정리할 것이다. <br>
+  <br>
+</p>
+<p>
+  느리더라도 멈추지 않고 꾸준히 계속 할 예정이다.  
+  <br>
+</p>
+<p>
+  <br>
+  혹시 공부하다 지치면 아래 <i class="fas fa-guitar"></i> 음악을 
+  들어보는 것도 추천한다. <br>
+  - <a href="https://www.youtube.com/watch?v=PF80vemES_8">[DancingFingers]</a>
+</p>
+<p>
+  <img class="home-img" src="/assets/img/infos/kobuki-col-small.png" style="float: right" width="50%" height="auto" >
+  <div style="clear:both;"></div>
+</p>
+</article>
+
+
+      </div>
+	</div>
+  </body>
 
 </html>

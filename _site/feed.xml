@@ -1,13 +1,2077 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-28T14:17:37+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Jekyll Netlify CMS</title><subtitle>This is the basic Jekyll starter site, with Netlify CMS integrated and using Netlify Identity for authentication.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2018/02/23/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-02-23T01:12:57+09:00</published><updated>2018-02-23T01:12:57+09:00</updated><id>http://localhost:4000/jekyll/update/2018/02/23/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/02/23/welcome-to-jekyll.html"><![CDATA[<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-10-28T17:56:43+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">코딩독학</title><subtitle>느려도 괜찮아,&lt;br&gt;꾸준히 코딩독학</subtitle><entry><title type="html">[인사이드 머신] - 파이프라인 해저드</title><link href="http://localhost:4000/study/2022/05/30/insideMachine-hazard.html" rel="alternate" type="text/html" title="[인사이드 머신] - 파이프라인 해저드" /><published>2022-05-30T19:55:00+09:00</published><updated>2022-05-30T19:55:00+09:00</updated><id>http://localhost:4000/study/2022/05/30/insideMachine-hazard</id><content type="html" xml:base="http://localhost:4000/study/2022/05/30/insideMachine-hazard.html"><![CDATA[<h1 id="해저드">해저드</h1>
+<ul>
+  <li>두 명령어가 동시에 <strong>병렬적으로 수행되지 못한 경우</strong> 이런 조건을 <strong>해저드</strong>라고 한다.</li>
+  <li>이 해저드의 발생 상황과 해결 방법에 대해 알아본다.</li>
+</ul>
 
-<p>To add new posts, simply add a file in the <code class="language-plaintext highlighter-rouge">_posts</code> directory that follows the convention <code class="language-plaintext highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<h2 id="해저드의-종류">해저드의 종류</h2>
+<ul>
+  <li>데이터 해저드
+    <ul>
+      <li>RAW/WAW/WAR 데이터 의존성과 메모리 의존성으로 발생.</li>
+    </ul>
+  </li>
+  <li>구조 해저드
+    <ul>
+      <li>하드웨어 자원 부족으로 발생.</li>
+    </ul>
+  </li>
+  <li>제어 해저드
+    <ul>
+      <li>분기 조건의 있으면 분기 조건을 평가하고, 분기 목적지를 계산할 때까지 파이프라인이 멈춰 발생.</li>
+    </ul>
+  </li>
+</ul>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p><br /></p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<h1 id="data-hazards---데이터-해저드">Data Hazards - 데이터 해저드</h1>
+<ul>
+  <li>데이터 해저드는 RAW/WAW/WAR 데이터 의존성과 메모리 의존성으로 발생한다.</li>
+</ul>
 
-<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.]]></summary></entry></feed>
+<h2 id="데이터-의존성의-종류">데이터 의존성의 종류</h2>
+
+<h4 id="raw--read-after-write-">RAW ( Read After Write )</h4>
+<ul>
+  <li>앞선 연산에서 Write 하는 메모리를 뒷 연산이 Read 하는 경우 발생.
+    <ul>
+      <li>2행에서 C 레지스터는 1행의 연산이 끝나야 값을 알 수 있다.
+<img src="/assets/img/study-img/inside-machine/raw.png" alt="data-hazard" class="lazyload post-img img-w500" />
+<em>Read After Write</em></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="waw--write-after-write-">WAW ( Write After Write )</h4>
+<ul>
+  <li>앞선 연산에서 Write 하는 메모리를 뒷 연산이 Write 하는 경우 발생.
+    <ul>
+      <li>1행에서 레지스터 E에 결과를 쓰고, 2행 역시 레지스터 E에 결과를 쓴다.
+<img src="/assets/img/study-img/inside-machine/waw.png" alt="data-hazard" class="lazyload post-img img-w500" />
+<em>Read After Write</em></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="war--write-after-read-">WAR ( Write After Read )</h4>
+<ul>
+  <li>앞선 연산에서 Read 하는 메모리를 뒷 연산이 Write 하는 경우 발생.
+    <ul>
+      <li>1행에서 레지스터A 를 읽고, 2행에선 이 레지스터 A 에 쓴다.
+<img src="/assets/img/study-img/inside-machine/war.png" alt="data-hazard" class="lazyload post-img img-w500" />
+<em>Read After Write</em></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>WAW, WAR 는 <strong>Register Rename 기법</strong>으로 쉽게 처리할 수 있어 <br />
+ 가짜 의존성 또는 <strong>거짓 레지스터 충돌</strong>이라고 부르기도 한다.</li>
+  <li>RAW 는 단순 Register Rename 과 같은 방법이 통하지 않기 때문에 <strong>진짜 의존성</strong> 이라고 부른다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="raw-의존성의-해결-방법">RAW 의존성의 해결 방법</h2>
+
+<p><img src="/assets/img/study-img/inside-machine/raw.png" alt="data-hazard" class="lazyload post-img img-w500" />
+<em>데이터 해저드 RAW 예제</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>첫번째 연산 결과가 레지스터 C에 쓰기가 완료된 후에야, 두번째 add 명령어가 수행 될 수있다.
+    <ul>
+      <li>4단계 파이프라인에서 Fetch 단계는 각 <strong>레지스터의 값을 가져와</strong> 실제 ALU 에서 실행한다.</li>
+      <li>즉 1행의 결과를 쓰기전에는 레지스터 C의 값을 가져올 수 없다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/data-hazard-e.png" alt="data-hazard" class="lazyload post-img img-w550" />
+<em>데이터 해저드 파이프라인 멈춤 발생</em></p>
+
+<p><br /></p>
+
+<h3 id="pipeline-forwardingpf---포워딩-기법">Pipeline forwarding(PF) - 포워딩 기법</h3>
+<ul>
+  <li>add 명령어의 결과를 레지스터 C 에 쓰는 작업을 건너뛰고, <br />
+<strong>연산 결과를 ALU 출력 포트에서 다음 명령어의 ALU 입력 포트로 바로 공급</strong>.
+    <ul>
+      <li>이럴 경우 첫번째 명령어의 수행 스테이지를 완료하면 두번째 add 가 가능하다.</li>
+      <li>이는 하드웨어의 특별한 설계를 필요로 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/data-hazard-e-f.png" alt="data-hazard" class="lazyload post-img img-w500" />
+<em>포워딩 기법의 활용</em></p>
+
+<p><br /></p>
+
+<h2 id="waw-war-의존성의-해결-방법">WAW, WAR 의존성의 해결 방법</h2>
+<ul>
+  <li>거짓 레지스터 충돌이 나는 경우 사용 가능</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/war.png" alt="data-hazard" class="lazyload post-img img-w500" />
+<em>Write After Read</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>아래 그림에서 IU1 레지스터와 IU2 레지스터는 실제 서로 다른 물리 레지스터를 사용하지만,  <br />
+프로그래밍 모델의 범용 레지스터는 A, B, C, D 만 사용.
+    <ul>
+      <li>위의 두 add 는 <strong>실제 의존성이 없음에도 레지스터 이름 충돌</strong>이 발생.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="register-rename---레지스터-리네임">Register Rename - 레지스터 리네임</h3>
+<ul>
+  <li>임시 레지스터를 이용하여 2 개의 add 명령어를 모두 병렬적으로 수행한 뒤, <br />
+둘째 add 의 결과를 <strong>임시 레지스터에 쓰고</strong>, 첫째 명령어가 A 레지스터를 읽은 뒤 레지스터 A 에 결과를 쓴다.</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/register-rename.png" alt="register-rename" class="lazyload post-img img-w600" />
+<em>레지스터 리네임</em></p>
+
+<h3 id="임시-변수를-활용한-트릭">임시 변수를 활용한 트릭</h3>
+<ul>
+  <li>아래 코드와 같이 임시 변수를 사용하여 해결이 가능하다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/* WAR 의존성 */
+C = A + B;
+A = C + A;
+
+/* Temp 변수를 이용하여 데이터 의존성 제거 */
+C = A + B;
+Temp = A;
+A = C + Temp;
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="structural-hazards---구조-해저드">Structural Hazards - 구조 해저드</h1>
+<ul>
+  <li>아래 프로그램은 <strong>데이터 의존성이 없기 때문에 병렬 수행이 가능</strong>해야 한다.
+    <ul>
+      <li>아래 2개 명령어를 2개 ALU 에서 동시에 수행하기 위해서는 <br />
+  필요한 레지스터에 동시에 접근할 수 있어야 한다.</li>
+    </ul>
+  </li>
+  <li>하지만 레지스터 파일이 동시에 <strong>1개의 쓰기만을 지원할 경우, 2개의 명령어를 동시에 수행할 수 없다</strong>.
+    <ul>
+      <li><strong>하드웨어 자원 부족으로 발생</strong>하는 문제.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/struct-hazard.png" alt="data-hazard" class="lazyload post-img img-w500" />
+<em>구조 해저드 예제</em></p>
+
+<p><br /></p>
+
+<h2 id="레지스터-파일">레지스터 파일</h2>
+<ul>
+  <li>여러개의 ALU 를 사용하는 수퍼스칼라 프로세서에서<br />
+ 각 ALU 와 레지스터를 직접 연결하기 위해서는 수많은 전선이 필요함.</li>
+  <li>ALU 에서 특정 레지스터에서 값을 읽어오려면 읽기 포트가 필요하고, 쓰려면 쓰기 포트가 필요.
+    <ul>
+      <li>두개의 ALU 에서 동시에 명령어를 수행하려면 4 개의 읽기 포트와 2 개의 쓰기 포트가 필요.
+        <ul>
+          <li>소스는 2개씩 이므로.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>레지스터가 차지하는 <strong>회로 면적</strong>은 포트 수의 제곱에 비례하므로, <strong>포트 수에 제한</strong>이 있음.</li>
+  <li>오늘날 CPU 는 명령어 종류에 따라 각각 별도의 레지스터 파일을 사용하는게 보통
+    <ul>
+      <li>서로 다른 종류의 수행 유닛이 하나의 레지스터 파일을 사용한다면, 레지스터 파일의 크기가 너무 커지므로.</li>
+      <li>레지스터가 커지면 <strong>커질수록 레지스터 데이터에 접근하는 시간이 길어진다</strong>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="control-hazards---제어-해저드">Control Hazards - 제어 해저드</h1>
+<ul>
+  <li>분기 해저드라고도 한다.</li>
+  <li>분기 조건의 있으면 분기 조건을 평가하고, 분기 목적지를 계산할 때까지 파이프라인이 멈춰있어야 한다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sub A, B, A   
+  jumpz LBL1    
+  add A, 15, A  
+LBL1 : 
+  add A, B, B       
+</code></pre></div></div>
+
+<ul>
+  <li>위의 프로그램에서 2번째 명령 <strong>jumpz 는 1번째 명령의 결과를 알아야 결정</strong>할 수 있다.
+    <ul>
+      <li>A == B : LBL1 으로 jump 하여 add A,  B, B 를 수행.</li>
+      <li>A != B : 순차적으로 add 15, A, A 를 수행.</li>
+    </ul>
+  </li>
+  <li>따라서 아래와 같이 <strong>파이프라인 멈춤이 발생</strong>할 수밖에 없다.
+    <ul>
+      <li>또한 3ns 에서 add A, 15, A 를 수행할지  add A, B, B 를 수행할지 알 수 없다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/control-hazard-e.png" alt="data-hazard" class="lazyload post-img img-w500" />
+<em>제어 해저드 예제</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>분기 예측을 써서 극복</strong> 가능.
+    <ul>
+      <li>분기예측은 <a href="/study/2022/05/30/insideMachine-5.html">캐시와 분기예측을 이용한 성능 향상</a>] 에서.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="명령어-로드-지연시간--instruction-load-latency-">명령어 로드 지연시간 ( instruction load latency )</h2>
+<ul>
+  <li>다음 명령어의 주소를 프로그램 카운터에 쓴 후 저장소에서 명령어를 실제 페치하는 데까지 걸리는 시간.</li>
+  <li>어떤 저장소에 저장 되어있느냐에 따라 수사이클에서 수천 사이클까지 차이가 날 수 있다.
+    <ul>
+      <li>보통 캐쉬를 통해 지연시간을 단축시킨다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="다음-주제">다음 주제</h1>
+<p><a href="/study/2022/05/30/insideMachine-5.html">[인사이드 머신] 캐시와 분기예측을 이용한 성능 향상</a></p>]]></content><author><name></name></author><category term="study" /><category term="inside-the-machine" /><category term="pipeline" /><category term="super-scalar" /><summary type="html"><![CDATA[파이프라인 병렬처리에서 병렬적으로 수행되지 못한 경우 발생하는 해저드와 해결방법에 대해 알아보자.]]></summary></entry><entry><title type="html">[인사이드 머신] - 4. 파이프라인 병렬화 - 수퍼스칼랑 수행</title><link href="http://localhost:4000/study/2022/05/30/insideMachine-4.html" rel="alternate" type="text/html" title="[인사이드 머신] - 4. 파이프라인 병렬화 - 수퍼스칼랑 수행" /><published>2022-05-30T19:50:00+09:00</published><updated>2022-05-30T19:50:00+09:00</updated><id>http://localhost:4000/study/2022/05/30/insideMachine-4</id><content type="html" xml:base="http://localhost:4000/study/2022/05/30/insideMachine-4.html"><![CDATA[<h1 id="수퍼스칼라">수퍼스칼라</h1>
+<p><a href="/study/2022/05/30/insideMachine-3.html">3. 병렬화를 통한 성능 향상 - 파이프라인</a> 에서는  <br />
+fetch-execute cycle 의 병렬화 하는 과정을 보았다.<br />
+이번에는 코드를 병렬로 처리해서 컴퓨터의 처리 속도를 올려주는 방법에 대해 알아본다.</p>
+
+<h1 id="수퍼스칼라-컴퓨터">수퍼스칼라 컴퓨터</h1>
+
+<h2 id="정의">정의</h2>
+<ul>
+  <li>하나의 칩에 여러 개의 ALU 를 탑재해서, 코드를 병렬로 처리할 수 있는 컴퓨터.
+    <ul>
+      <li>반도체의 <span class="tooltip" id="id-1">집적도</span>가 높아짐에 따라 <br />
+  하나의 칩에 집적될 수 있는 트랜지스터의 수가 기하급수적으로 증가.</li>
+      <li>이로 인해 하나의 칩에 여러 ALU 를 탑재하여 동시에 1개 이상의 스칼라 연산(정수 연산) 가능.</li>
+    </ul>
+  </li>
+  <li>2개 이상의 ALU 를 가지고 있기 때문에 <strong>2개 이상의 정수 연산을 병렬적으로 실행 가능</strong>하다.
+    <ul>
+      <li><strong>n-way 수퍼스칼라</strong> 라고도 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/n-way-super.png" alt="n-way" class="lazyload post-img img-w400" />
+<em>2-Way 수퍼스칼라</em></p>
+
+<ul>
+  <li>n 개의 ALU 는 레지스터 파일을 공유한다.</li>
+  <li>그림을 보면 <strong>n-way 와 관계없이</strong> 메인메모리에는 <strong>코드, 명령어, 결과 스트림이 1개씩만 존재</strong>한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="디스패치-dispatch-">디스패치( dispatch )</h2>
+<ul>
+  <li>2 개 이상의 명령어가 병렬로 처리도리 수 있는지 판단하는 과정.</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/2-way-dispather.png" alt="dispather" class="lazyload post-img img-w400" />
+<em>2-way 수퍼스칼라의 파이프라인</em></p>
+
+<h3 id="기존의-파이프라인-디코드가-디코드디스패치로-변경">기존의 파이프라인 디코드가 디코드/디스패치로 변경.</h3>
+<ul>
+  <li>이전 디코드 단계에서 2개 이상의 명령어가 병렬로 처리될 수 있는지 판단하는 과정이 추가됨.
+    <ul>
+      <li><strong>디코드와 디스코드 두 과정이 1클럭 안에 처리</strong>할 수 있으므로 하나의 스테이지로 표기.</li>
+    </ul>
+  </li>
+  <li>만약 2개 이상의 명령어가 병렬로 수행될 수 있다고 판단되면,<br />
+<strong>디스패치 유닛은 각 명령어를 서로 다른 ALU 에서 병렬로 처리</strong>되도록 한다.
+    <ul>
+      <li>아닌 경우에는 2개의 명령어가 본래 명령어 순서대로 순차 처리.</li>
+    </ul>
+  </li>
+  <li>병렬 처리를 하게 되더라도( 내부적인 프로세서의 구성이 완전히 달라지더라도 ) <br />
+프로그래머는 동일한 인터페이스를 사용해서 프로그램을 작성.
+    <ul>
+      <li><strong>수퍼스칼라 CPU 역시 순차 수행 모델을 철저히 준수</strong>해야 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="수퍼스칼라-수행과-ipc">수퍼스칼라 수행과 IPC</h1>
+<ul>
+  <li>수퍼스칼라 컴퓨터를 사용하면 클럭당 1개 이상의 명령어를 완료할 수 있다.
+    <ul>
+      <li>기존 파이프라인 프로세서에서 이론상 최대 명령어 산출량은 클럭당 1개.</li>
+    </ul>
+  </li>
+  <li>n-웨이 수퍼스칼라의 경우 <strong>이론상 클럭당 n개의 명령어를 완료</strong>할 수 있다.</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/super-scalar-pipeline.png" alt="super-scalar-pipeline" class="lazyload post-img img-w600" />
+<em>2-way 수퍼스칼라의 프로세서의 파이프라인</em></p>
+
+<ul>
+  <li>프로세서가 n개의 명령어를 동시에 수행하기 위해서는, <br />
+ n개의 명령어를 한꺼번에 페치하고 디코드 할 수 있어야 한다.
+    <ul>
+      <li>ex) 명령어의 크기가 2바이트일때
+        <ol>
+          <li>2-way 수퍼스칼라 프로세서는 <strong>매 클럭 사이클마다 2개의 명령어를 메모리에서 페치</strong>해온다.</li>
+          <li>2개의 명령어를 디코드, 디스패치 한다.</li>
+          <li>프로그램 카운터를 <strong>4바이트 증가</strong>시킨다.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li>그러면 n-way 수퍼스칼라는 항상 성능을 향상시킬까? <br />
+이에 대해서는 아래 <strong><a href="/study/2022/05/30/insideMachine-hazard.html">병렬처리와 해저드</a></strong>에서 다룬다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="파이프라인-및-수퍼스칼라-설계에-따른-변화">파이프라인 및 수퍼스칼라 설계에 따른 변화</h1>
+<ul>
+  <li>두 명령어가 동시에 <strong>병렬적으로 수행되지 못한 경우</strong> 이런 조건을 <strong>해저드</strong>라고 한다.
+    <ul>
+      <li><strong><a href="/study/2022/05/30/insideMachine-hazard.html">병렬처리와 해저드</a>를 보자. 꼭 보자.</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="다음-주제">다음 주제</h1>
+<p><a href="/study/2022/05/30/insideMachine-5.html">[인사이드 머신] 캐시와 분기예측을 이용한 성능 향상</a></p>
+
+<hr />
+
+<h1 id="부록---수퍼스칼라의-수행-유닛">부록 - 수퍼스칼라의 수행 유닛</h1>
+
+<h3 id="수행유닛-execution-unit-">수행유닛( execution unit )</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- 프로세서의 백엔드에 있는 하드웨어.
+- 특정 형태의 명령어를 실제로 수행하는 하드웨어.
+</code></pre></div></div>
+
+<h3 id="기본적인-숫자-포맷과-산술-연산">기본적인 숫자 포맷과 산술 연산</h3>
+<ul>
+  <li>현대 마이크로프로세서가 처리하는 숫자의 종류는 크게 다음과 같다
+    <ul>
+      <li>정수( fixed point, 고정 소수점 )
+        <ul>
+          <li>정수 관련 산술, 논리 연산들은 마이크로프로세서에서 <strong>가장 빨리 처리</strong>할 수 있는 단순한 연산들이다.</li>
+        </ul>
+      </li>
+      <li><span class="tooltip" id="id-2">부동</span>소수점( floating point )
+        <ul>
+          <li>유리수를 십진수로 나타낸 것.</li>
+          <li>부동소수점 수로 나타낼 수 있는 수의 정확도는 제한되어 있음.
+            <ul>
+              <li>많은 경우 부동소수점 표현은 <strong>실제값의 근사치</strong>.</li>
+            </ul>
+          </li>
+          <li><strong>정수 연산에 비해 복잡하고 느리다</strong>.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>정수와 부동소수점 수는 각각 다시 벡터와 스칼라로 나뉨.
+    <ul>
+      <li>Scalar - Scalar
+        <ul>
+          <li>하나의 수만을 가진 형태.</li>
+        </ul>
+      </li>
+      <li>Vector - 벡터
+        <ul>
+          <li>순열이나 배열에서 자주 볼 수 있는 여러 숫자가 합쳐진 형태</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>데이터는 위의 4가지 형태( 정수 스칼라, 부동소수 스칼라, 정수 벡터, 부동 소수 벡터 )로 나눌 수 있다.
+    <ul>
+      <li>코드는 위의 4가지 형태를 처리하는 명령어들로 나눌 수 있다.</li>
+      <li>4종류의 데이터 연산은 산술 연산과 논리 연산으로 나눌 수 있다.
+        <ul>
+          <li>산술 연산
+            <ul>
+              <li>덧셈, 뺄셈, 곳셈, 나눗셈과 같이 숫자들에 관해서 수행되는 연산</li>
+            </ul>
+          </li>
+          <li>논리 연산
+            <ul>
+              <li>AND, OR, NOT, XOR 그리고 비트 쉬프트와 같은 연산들.</li>
+              <li>이 연산들은 정수 스칼라, 정수 벡터, 특수 레지스터( PSW ) 에 적용된다.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/type.png" alt="type" class="lazyload post-img img-w450" />
+<em>숫자 형식과 연산 현태 분류</em></p>
+
+<p><br /></p>
+
+<h3 id="산술-논리-유닛">산술 논리 유닛</h3>
+<ul>
+  <li>마이크로프로세서 초기에는 모든 산술 연산과 논리 연산이 1 개의 ALU 에 의해서 처리되었다.</li>
+  <li>부동소수점 연산은 산술 보조 처리기( arithmetic coprocesser ) 라고 하는 별도의 칩에서 처리되었지만, <br />
+시간이 지남에 따라 부동 소수연산 부분은 CPU 의 수행 유닛으로 통합되었다.</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/intel-pentium.png" alt="pentium" class="lazyload post-img img-w400" />
+<em>부동소수점 유닛이 추가된 컴퓨터</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>일반적으로 ALU 는 모든 데이터 타입을 처리하는 수행유닛이고,<br />
+ 특정 형태의 명령어를 처리하는 ALU 를 나타낼 때는 별도의 이름을 사용한다.
+    <ul>
+      <li>정수 수행 유닛 ( IU : Integer Unit  )
+        <ul>
+          <li>SIU ( Simple IU ), CIU ( Complex IU )</li>
+        </ul>
+      </li>
+      <li>부동소수점 수행 유닛 ( FPU : Floating Point Unit )</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="메모리-접근-유닛">메모리 접근 유닛</h3>
+<ul>
+  <li>로드 스토어 유닛 ( LSU : Load Store Unit )
+    <ul>
+      <li>메모리 주소 생성과 로드와 스토어 명령어 처리를 담당.</li>
+      <li>보통 LSU 에는 메모리 주소를 빠르게 계산할 수 있도록 별도의 정수 가산기가 있다.
+        <ul>
+          <li>메모리 주소는 정수이므로.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>분기 수행 유닛 ( BEU : Branch Execution Unit )
+    <ul>
+      <li>조건 분기와 무조건 분기를 담당.</li>
+      <li>대부분 BEU 역시 주소 생성 유닛을 가지고 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<div class="tooltip-desc">
+    <div class="tooltip-description" id="desc-1">
+    한 개의 집적 회로에 편성되어 있는 소자의 수.
+    </div>
+    <div class="tooltip-description" id="desc-2">
+    소수점의 위치가 물에 떠다니는 것 처럼 고정되어 있지 않다는 뜻.
+    </div>
+</div>]]></content><author><name></name></author><category term="study" /><category term="inside-the-machine" /><category term="pipeline" /><category term="super-scalar" /><summary type="html"><![CDATA[코드처리의 병렬화를 통한 처리 성능 향상원리를 알아본다.]]></summary></entry><entry><title type="html">[인사이드 머신] - 3. 병렬화를 통한 성능 향상 - 파이프라인</title><link href="http://localhost:4000/study/2022/05/30/insideMachine-3.html" rel="alternate" type="text/html" title="[인사이드 머신] - 3. 병렬화를 통한 성능 향상 - 파이프라인" /><published>2022-05-30T19:40:00+09:00</published><updated>2022-05-30T19:40:00+09:00</updated><id>http://localhost:4000/study/2022/05/30/insideMachine-3</id><content type="html" xml:base="http://localhost:4000/study/2022/05/30/insideMachine-3.html"><![CDATA[<h1 id="명령어의-생명-주기와-기본-흐름">명령어의 생명 주기와 기본 흐름</h1>
+<p><a href="/study/2022/05/30/insideMachine-2.html">2. 프로그램 실행의 원리</a> 에서 본 fetch-execute cycle 을 더 자세히 알아보고, <br />
+이를 병렬화 하여 최적화 하는 과정을 알 수 있다.</p>
+
+<h2 id="명령어의-생명-주기">명령어의 생명 주기</h2>
+<ul>
+  <li>컴퓨터는 3 단계 수행을 반복해서 하나의 프로그램을 수행한다.
+    <ul>
+      <li>페치, 디코드, 수행</li>
+    </ul>
+  </li>
+  <li>이중 수행은 다음과 같이 3 단계로 나눌 수 있는데 이중 마지막 단계인 레지스터에 쓴다는 따로 처리한다.
+    <ul>
+      <li>소스 레지스터의 값을 읽는다.</li>
+      <li>소스레지스터의 값을 연산한다.</li>
+      <li>결과를 목적 레지스터에 쓴다.</li>
+    </ul>
+  </li>
+  <li>따라서 컴퓨터 수행단계는 다음과 같이 4개로 나눌 수 있다.
+    <ul>
+      <li>fetch 페치</li>
+      <li>decode 디코드</li>
+      <li>execution 수행
+        <ul>
+          <li>소스 레지스터의 값을 읽는다.</li>
+          <li>소스레지스터의 값을 연산한다.</li>
+        </ul>
+      </li>
+      <li>write or write-back 쓰기</li>
+    </ul>
+  </li>
+  <li>위의 4 스테이지는 <strong>명령어의 생명주기에서 1 Clock 을 나타낸다</strong>.
+    <ul>
+      <li>각각 한 스테이지 수행에는 일정한 시간이 걸린다.
+        <ul>
+          <li>실제로는 그렇지 않은 경우가 더 많다.</li>
+          <li>여기서 각 단계가 1ns 가 걸린다면 가상의 DLW-1 프로세서는 4ns 마다 하나의 명령어를 완료한다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/execute-4step.png" alt="execute-4step" class="lazyload post-img img-w350" />
+<em>명령어 수행 4단계</em></p>
+
+<h2 id="명령어의-기본-흐름">명령어의 기본 흐름</h2>
+<ul>
+  <li>Front-End 프론트엔드
+    <ul>
+      <li>명령어를 읽어와 해석하는 과정</li>
+    </ul>
+  </li>
+  <li>Back-End 백엔드
+    <ul>
+      <li>실제 연산을 한 후, 그 결과를 쓰는 과정</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/front-back-end.png" alt="Front-Back-End" class="lazyload post-img img-w550" />
+<em>프론트엔드와 백엔드</em></p>
+
+<p><br /></p>
+
+<p><img src="/assets/img/study-img/inside-machine/execute-flow.png" alt="execute-flow" class="lazyload post-img img-w300" />
+<em>프론트엔드와 백엔드에서 명령어의 기본 흐름</em></p>
+
+<h1 id="파이프라인">파이프라인</h1>
+<ul>
+  <li>시스템의 효율을 높이기 위해 명령문을 수행하면서 몇 가지의 특수한 작업들을 <strong>병렬 처리</strong>하도록 설계된 하드웨어 기법.</li>
+</ul>
+
+<h2 id="단일-사이클-프로세서">단일 사이클 프로세서</h2>
+<ul>
+  <li>하나의 명령어가 1 클럭 사이클 동안 수행 4단계를 모두 거치며 처리된다.
+    <ul>
+      <li>하나의 명령어를 수행하는데 정확히 1 클럭 사이클이 소요된다.</li>
+      <li>명령어 처리량은 클럭 속도에 정확히 비례하므로, <strong>CPU 의 클럭 사이클은 무조건 높을수록 좋다</strong>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/single-cycle-processor.png" alt="single-cycle-processor" class="lazyload post-img img-w700" />
+<em>단일 사이클 프로세서</em></p>
+
+<ul>
+  <li>프로세서 완료율
+    <ul>
+      <li>시간당 처리할 수 있는 명령어 수.</li>
+      <li>한 스테이지당 1ns 즉 1클럭당 4ns 가 소요될 때
+        <ul>
+          <li>0.25 명령어/ns ( = 1 명령어 / 4ns )</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>단순하기 때문에 설계가 쉽지만, <strong>하드웨어 자원을 효율적으로 사용하지 못한다</strong>.</li>
+  <li>그림상의 흰 부분은 유용한 일을 하지 않은 채, 할일을 기다리고 있는 프로세서 하드웨어를 나타낸다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="파이프라인-프로세서">파이프라인 프로세서</h2>
+<ul>
+  <li>명령어 수행 과정(수행 4 단계)을 각각의 최적화된 하드웨어에 의해 수행되는 <strong>별도의 파이프라인 스테이지로 분리</strong>.
+    <ul>
+      <li>스테이지 1: 명령어를 코드 저장소에서 페치</li>
+      <li>스테이지 2: 명령어를 디코드</li>
+      <li>스테이지 3: 명령어를 수행</li>
+      <li>스테이지 4: 명령어 수행 결과를 레지스터 파일에 쓴다.</li>
+    </ul>
+  </li>
+  <li>파이프라인 스테이지의 수를 파이프라인 깊이 라고도 한다.</li>
+  <li>각 파이프라인 스테이지는 <strong>자신의 작업을 다음 스테이지에 넘겨준 후 다음 명령어의 작업을 가져와 수행</strong>한다.</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/4stage-pipeline.png" alt="4stage-pipeline" class="lazyload post-img img-w700" />
+<em>4스테이지 파이프라인</em></p>
+
+<ul>
+  <li>프로세서 완료율
+    <ul>
+      <li>한 스테이지당 1ns 즉 1클럭당 4ns 가 소요될 때
+        <ul>
+          <li>1 명령어/ns ( = 5ns 이후 시점부터 4 명령어 / 4ns )</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>이론적으로 <strong>n 파이프라인의 경우 단일 사이클 프로세서보다 최대 n 배의 완료율</strong>을 보여준다.</li>
+</ul>
+
+<h3 id="프로그램-수행시간">프로그램 수행시간</h3>
+<ul>
+  <li><strong>파이프라인이 적용되더라도 각 명령어의 수행시간 자체는 바뀌지 않는다</strong>.
+    <ul>
+      <li>단일 프로세서나 파이프라인이나 각 명령어를 수행하는데 1 Clock 이 걸린다.</li>
+    </ul>
+  </li>
+  <li>하지만 <strong>일정 시간 동안 수행되는 명령어의 수를 증가</strong>시켜 프로그램 수행시간을 단축할 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>n 파이프라인은 단일 사이클 프로세서보다 최대 n 배의 완료율을 보여준다. <br />
+그런데 <strong>항상 n 파이프라인이 n 배의 성능 향상을 가져올까??</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="프로그램-수행시간과-완료율">프로그램 수행시간과 완료율</h1>
+<ul>
+  <li>프로그램 수행시간은 다음과 같이 나타낼 수 있다.
+    <ul>
+      <li>프로그램 수행시간 = 프로그램 명령어 수 / 명령어 완료율</li>
+    </ul>
+  </li>
+  <li>프로세서의 성능에 대해 언급할 때, 그 기준은 대부분 프로그램 수행시간이다.
+    <ul>
+      <li>따라서 프로그램 수행시간을 단축하는 것은 프로세서 성능을 향상시키는 것을 의미.</li>
+    </ul>
+  </li>
+  <li><strong>단일 사이클 프로세서의 경우 명령어 완료율은 단순히 명령어 수행시간의 역</strong>이다.
+    <ul>
+      <li>이 때 완료율과 프로그램 수행시간의 관계는 비례이므로, 명령어 수행시간을 단축하면 된다.</li>
+    </ul>
+  </li>
+  <li><strong>파이프라인은 명령어 수행시간의 변화 없이 프로세서의 완료율을 변화시킬 수 있다</strong>.
+    <ul>
+      <li>파이프라인으로 인한 완료율 증가는 때로 1개의 명령어 수행시간을 증가시킬 수 있다.
+        <ul>
+          <li>따라서 파이프라인은 명령어 수행시간이 아닌 완료율이 프로세서 성능의 지표가 된다..</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/execute-time-complete.png" alt="execute-time-complete" class="lazyload post-img img-w500" />
+<em>4스테이지 파이프라인의 평균 완료율</em></p>
+
+<p><br /></p>
+
+<h2 id="프로그램-수행시간과-완료율의-관계">프로그램 수행시간과 완료율의 관계</h2>
+<ul>
+  <li>프로세서가 첫 명령어를 끝내기 전까지(빈 파이프라인에 명령어를 채우기 시작해서 첫 명령어를 완료하는 시간까지) <br />
+  완료율은 0 이 되며, 이 이후부터 완료율은 증가하기 시작한다.</li>
+  <li>전체 프로그램 실행시간에 비해 이 첫 명령어의 종료 시간은 매우 적으므로<br />
+ 이론상 최대 완료율과 평균 완료율의 차이가 생긴다</li>
+</ul>
+
+<h1 id="명령어-산출량과-파이프라인-멈춤">명령어 산출량과 파이프라인 멈춤</h1>
+<ul>
+  <li>파이프라인은 여러 가지 측면에서 프로세서를 복잡하게 만든다.
+    <ul>
+      <li>파이프라인 각 스테이지 동기화를 위해 마이크로프로세서의 제어 유닛이 복잡해 진다.</li>
+      <li>성능 측정 방법이 복잡해 진다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="instruction-throughput---명령어-산출량">instruction throughput - 명령어 산출량</h2>
+<ul>
+  <li>더욱 보편적인 프로세서 성능 평가 잣대
+    <ul>
+      <li>명령어 산출량
+        <ul>
+          <li>한 클럭 사이클마다 종료되는 명령어 수</li>
+          <li>IPC(instruction per clock) 이라고도 한다.</li>
+        </ul>
+      </li>
+      <li>이론적 최대 명령어 산출량
+        <ul>
+          <li>프로세서가 한 클럭 사이클마다 수행할 수 있는 이론상 최대 명령어 수.</li>
+        </ul>
+      </li>
+      <li>평균 명령어 산출량
+        <ul>
+          <li>일정 시간동안 프로세서가 실제로 달성한 IPC</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="pipeline-stall---파이프라인-멈춤-파이프라인-버블">pipeline stall - 파이프라인 멈춤, 파이프라인 버블</h2>
+<ul>
+  <li>프로세서 동작 중에 하나의 명령어가 같은 스테이지에서 몇 클럭 동안 머무르는 일</li>
+  <li>파이프라인 멈춤이 일어난 스테이지 이후에 있는 스테이지의 명령어는 <br />
+정상적으로 수행되지만 이전의 명령어 수행은 모두 멈춘다.
+    <ul>
+      <li>이로 인해 멈춘 기간 만큼 앞 명령어와의 사이에 간격이 생기고, <br />
+멈췄던 명령어가 재개될 때 다음 스테이지로 넘어갈 때 함께 넘어간다.</li>
+      <li>이 간격을 <strong>파이프라인 버블</strong> 이라고도 한다.</li>
+      <li>파이프라인 버블은 <a href="/study/2022/05/30/insideMachine-4.html">파이프라인 병렬화 - 수퍼스칼랑 수행</a> 에서 자세히 다룬다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/pipeline-buble.png" alt="pipeline-buble" class="lazyload post-img img-w500" />
+<em>4 스테이지 파이프라인 프로세서에 파이프라인 멈춤으로 인해 버블이 생긴 모습</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li><strong>파이프라인 멈춤은 평균 명령어 산출량을 감소</strong>시킨다.
+    <ul>
+      <li>실제 프로그램에서 수많은 명령어가 파이프라인 멈춤을 야기하고,  <br />
+  이에 따라 상당한 성능 저하를 초래할 수 있다.</li>
+    </ul>
+  </li>
+  <li>파이프라인 멈춤은 프로세서 설계자에게 있어 매우 중요한 문제.</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="/assets/img/study-img/inside-machine/buble-graph.png" alt="buble-graph" class="lazyload post-img img-w500" />
+<em>4 스테이지 파이프라인 프로세서에 2 클럭 동안 파이프라인 멈춤이 발생했을 때의 평균 명령어 산출량</em></p>
+
+<p><br /></p>
+
+<h2 id="pipeline-flush---파이프라인-비움">pipeline flush - 파이프라인 비움</h2>
+<ul>
+  <li>분기 예측등으로 파이프라인을 미리 채워놨으나, 분기 예측이 실패하여 미리 채운 파이프라인을 모두 비우는 현상.
+    <ul>
+      <li>분기 예측은 <a href="/study/2022/05/30/insideMachine-5.html">캐시와 분기예측을 이용한 성능 향상</a> 에서.</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sub A, B, C   
+  jumpz LBL1    
+  add A, 15, A  
+LBL1 : 
+  add A, B, B       
+</code></pre></div></div>
+
+<p><img src="/assets/img/study-img/inside-machine/pipeline-null.png" alt="pipeline-null" class="lazyload post-img img-w500" />
+<em>분기 예측으로 파이프라인을 미리 채움</em></p>
+
+<ul>
+  <li>위의 프로그램에서 2번째 명령 <strong>jumpz 는 1번째 명령의 결과를 알아야 결정</strong>할 수 있다.
+    <ul>
+      <li>A == B : LBL1 으로 jump 하여 add A,  B, B 를 수행.</li>
+      <li>A != B : 순차적으로 add 15, A, A 를 수행.</li>
+    </ul>
+  </li>
+  <li>분기 예측이 <strong>A == B 를 예측하고 이를 미리 채운다</strong>.</li>
+  <li>하지만 <strong>분기 예측이 실패할 경우 미리 채운 파이프라인을 비워야 한다</strong>.
+    <ul>
+      <li>실제 분기 예측은 아래와 같이 하나만 채우지 않고 많은 양을 한꺼번에 채우기 때문에 <br />
+  이로 인해 비용이 상당히 클 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/pipeline-null2.png" alt="pipeline-null2" class="lazyload post-img img-w550" />
+<em>분기 예측실패로 파이프라인 비움</em></p>
+
+<p><br /></p>
+
+<h1 id="파이프라인의-한계">파이프라인의 한계</h1>
+<ul>
+  <li>파이프라인으로 인한 이득이 이상적인 경우보다 훨씬 떨어지게 된다.
+    <ul>
+      <li>명령어의 생명 주기가 <strong>완전히 균일한 여러개의 스테이지로 나눠지지 않는다.</strong>
+        <ul>
+          <li>각 파이프라인 스테이지는 모두 1 클럭 사이클 안에 수행되야 하므로 <br />
+  <strong>가장 느린 스테이지가 CPU 의 클럭 사이클을 결정</strong>한다.
+            <ul>
+              <li>가장 느린 스테이지는 1 싸이클을 전부 사용하지만, <br />
+  <strong>빠른 스테이지는 사이클의 일부를 아무것도 하지 않은 채 느린 스테이지를 기다리게</strong> 된다.</li>
+              <li>따라서 산출량을 높이기 위해 파이프라인 스테이지를 추가하다 보면, <br />
+  스테이지 간 수행시간의 편차가 점점 커지고, <br />
+  그에 따라 프로세서의 평균 명령어 수행시간이 길어진다.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><strong>파이프라인 스테이지가 많아질수록 파이프라인을 모두 채우는데 더 많은 시간이 걸리는 것을 의미</strong>한다.
+        <ul>
+          <li>즉 완료율이 완만하게 올라간다.</li>
+        </ul>
+      </li>
+      <li>프로그램을 수행하다 보면 <strong>기존 파이프라인의 내용을 버리고(flush)</strong>, <br />
+  코드 스트림의 다른 부분부터 파이프라인을 새로 채워야 할 경우가 많기 때문에, <br />
+  완료율이 완만하게 올라갈 경우 프로세서 성능에 악영향을 미칠 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/4-8-stage-pipeline.png" alt="4-8-stage-pipeline" class="lazyload post-img img-w500" />
+<em>1ns 클럭으로 동작하는 4 스테이지 및 8 스테이지 프로세서의 완료율 변화</em></p>
+
+<h2 id="파이프라인-성능-극대화를-위한-고려사항">파이프라인 성능 극대화를 위한 고려사항</h2>
+<ul>
+  <li><strong>파이프라인 멈춤</strong>을 최소화 시켜야 한다.</li>
+  <li><strong>파이프라인 비움</strong>을 피해야 한다.
+    <ul>
+      <li>파이프라인을 비우고 다시 채우는 것은 완료율과 성능 모두에 심각한 악영향을 끼친다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="파이프라인의-비용">파이프라인의 비용</h1>
+<ul>
+  <li>파이프라인을 통한 성능 향상에는 한계가 있다.
+    <ul>
+      <li>파이프라인은 추가 버퍼 회로가 필요하여 비용 문제가 발생.</li>
+    </ul>
+  </li>
+  <li>더 많은 트랜지스터를 필요하므로 프로세서의 크기가 커진다.
+    <ul>
+      <li>프로세서를 설계할 때에는 성능 향상과 비용 문제를 함께 고려해서 현실적인 파이프라인 깊이를 정해야 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="다음-주제">다음 주제</h1>
+<p><a href="/study/2022/05/30/insideMachine-4.html">[인사이드 머신] 파이프라인 병렬화 - 수퍼스칼랑 수행</a></p>]]></content><author><name></name></author><category term="study" /><category term="inside-the-machine" /><category term="pipeline" /><summary type="html"><![CDATA[명령어 처리의 병렬화를 통한 성능 향상원리를 알아본다.]]></summary></entry><entry><title type="html">[인사이드 머신] - 마이크로아키텍쳐와 ISA</title><link href="http://localhost:4000/study/2022/05/30/insideMachine-ISA.html" rel="alternate" type="text/html" title="[인사이드 머신] - 마이크로아키텍쳐와 ISA" /><published>2022-05-30T19:35:00+09:00</published><updated>2022-05-30T19:35:00+09:00</updated><id>http://localhost:4000/study/2022/05/30/insideMachine-ISA</id><content type="html" xml:base="http://localhost:4000/study/2022/05/30/insideMachine-ISA.html"><![CDATA[<h1 id="소프트웨어와-하드웨어-사이에-중재자">소프트웨어와 하드웨어 사이에 중재자</h1>
+<p>프로그래머는 하드웨어에 관계없이 프로그램을 만들고 실행한다. <br />
+하드웨어마다 설계도 특징도 다른데 이게 어떻게 가능한지 알아보자.</p>
+
+<p><br /></p>
+
+<h1 id="마이크로아키텍처와-isa">마이크로아키텍처와 ISA</h1>
+<ul>
+  <li>ISA ( 명령어 집합 아키텍처, instruction set architecture )
+    <ul>
+      <li><strong>프로그래머 중심</strong>적인 프로그래밍 모델과 명령어 집합</li>
+    </ul>
+  </li>
+  <li>마이크로아키텍처 ( microarchitecture )
+  어떤 ISA 에 대한 특정 하드웨어 구현.</li>
+</ul>
+
+<h2 id="isa-의-역사">ISA 의 역사</h2>
+<ul>
+  <li>컴퓨터 역사 초창기에는 프로그래머들이 각 하드웨어에 적합한 프로그램을 직접 만들었으며, <br />
+<strong>새로운 기계가 등장할 때마다 처음부터 모든 프로그램을 다시 짜야</strong> 했다.
+    <ul>
+      <li>소프트웨어는 각 하드웨어에 고유하게 설계 되었다.</li>
+      <li>아래 그림의 소프트웨어는 <strong>다른 하드웨어에선 동작하지 못한다.</strong></li>
+    </ul>
+  </li>
+  <li>이후 마이크로아키텍처와 분리해서 일종의 추상화 계층(인터페이스)인 ISA 를 도입하여,<br />
+ 프로그래머는 실제 컴퓨터하드웨어 구현을 <strong>추상화한 정보를 통해 프로그램을 작성</strong>할 수 있게 되었다.</li>
+  <li>명령어 집합의 설계 및 구현이 실제 컴퓨터의 하드웨어 구현과 분리됨에 따라, <br />
+<strong>특정 ISA 에서 작성된 프로그램은 해당 ISA 를 구현한 어느 컴퓨터에서든지 실행 가능</strong>하게 되었다.</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/software-before-isa.png" alt="software-before-isa" class="lazyload post-img img-w300" />
+<em>소프트웨어는 각 하드웨어에 고유하게 설계되었다.</em></p>
+
+<p><br /></p>
+
+<h2 id="isa-계층">ISA 계층</h2>
+<ul>
+  <li>하드웨어 계층도 아니고, 소프트웨어 계층도 아닌 개념상의 계층.</li>
+  <li>ISA 계층은 하드웨어 복잡도를 프로그래머에게 감추는 역할을 한다.
+    <ul>
+      <li>즉 실제 하드웨어와 상관없이 프로그래머는 프로그래밍 모델에 맞춰 소프트웨어를 만들면  <br />
+ISA 가 이 <strong>소프트웨어와 하드웨어 사이에 중재자</strong> 역할을 하여 서로다른 하드웨어에서도 사용이 가능하게 해준다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/ISA.png" alt="ISA" class="lazyload post-img img-w500" />
+<em>ISA는 여러 세대의 하드웨어에 걸쳐, 소프트웨어에 일관된 인터페이스를 제공한다.</em></p>
+
+<p><br /></p>
+
+<h2 id="마이크로코드-엔진">마이크로코드 엔진</h2>
+<ul>
+  <li>컴퓨터에서 ISA 추상화 계층을 사용할 수 있도록 하는 프로세서.
+    <ul>
+      <li><strong>ISA 명령어</strong>를 칩 내부를 제어하는 <strong>일련의 <span class="tooltip" id="id-1">기계 명령어</span>로 변환</strong>.</li>
+    </ul>
+  </li>
+  <li>마이크로코드 프로그램을 저장하는 마이크로코드 ROM 과 이를 처리하는 수행 유닛으로 이루어져 있다.</li>
+  <li>초기 마이크로코드 엔진의 큰 단점은 명령어를 직접 디코드하는 경우에 비해 속도가 느렸다.</li>
+  <li>ISA 는 각 하부 하드웨어에 의해 에뮬레이션되는 이상적인 컴퓨터 모델을 나타내며,<br />
+ 프로그래머는 이러한 이상적인 모델을 통해 프로그램을 작성.
+    <ul>
+      <li>이 경우 <strong>마이크로코드 프로그램만 다시 작성하면 새로운 하드웨어에서도 ISA 를 이전과동일하게 유지</strong>할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="복잡한-하드웨어에서-복잡한-소프트웨어로">복잡한 하드웨어에서 복잡한 소프트웨어로</h1>
+<ul>
+  <li>마이크로코드 엔진에 따라 컴퓨터는 두가지로 나뉘게 된다.</li>
+</ul>
+
+<h2 id="risc--reduced-instruction-set-computer-">RISC ( Reduced Instruction Set Computer )</h2>
+<ul>
+  <li><strong>고속 수행을 중시했기 때문에 마이크로코드 엔진을 사용하지 않음</strong>.
+    <ul>
+      <li>간단한 하드웨어, 복잡한 소프트웨어.</li>
+    </ul>
+  </li>
+  <li>RISC 에서 ISA 는 직접 하드웨어로 구현될 수 있는 간단한 형태로 변환됨.
+    <ul>
+      <li><strong>하드웨어 대신 소프트웨어를 복잡</strong>하게 만듦으로써 <br />
+  마이크로코드 엔진을 없애면서도 여전히 <strong>ISA 의 장점을 유지</strong>할 수 있었다.</li>
+    </ul>
+  </li>
+  <li>RISC 는 명령어의 종류를 줄이고 각 명령어를 단순화했기 때문에,<br />
+이전처럼 큰 마이크로코드 엔진 없이도 하드웨어상 바로 명령어 집합을 구현 가능.</li>
+</ul>
+
+<h2 id="cisc--complex-instruction-set-computer-">CISC ( Complex Instruction Set Computer )</h2>
+<ul>
+  <li>마이크로코드 엔진에 기반.
+    <ul>
+      <li>복잡한 하드웨어, 간단한 소프트웨어.</li>
+      <li><strong>다양한 명령어를 지원함으로써 프로그래머들을 편하게</strong> 만듦.</li>
+    </ul>
+  </li>
+  <li>RISC 와 비교하여 같은 연산을 수행하기 위해서 훨씬 더 적은 명령어가 필요.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="다음-주제">다음 주제</h1>
+<p><a href="/study/2022/05/30/insideMachine-3.html">[인사이드 머신] 병렬화를 통한 성능 향상 - 파이프라인</a></p>
+
+<hr />
+
+<div class="tooltip-desc">
+    <div class="tooltip-description" id="desc-1">
+    프로세서 아키텍처 명령어가 지정하는 작업을 실제 수행하는 프로세서 내부에서 사용되는 명령어.
+    </div>
+</div>]]></content><author><name></name></author><category term="study" /><category term="inside-the-machine" /><summary type="html"><![CDATA[소프트웨어와 하드웨어 사이에 중재자 역할을 하는 ISA 와 마이크로아키텍쳐에 대해 알아보자.]]></summary></entry><entry><title type="html">[인사이드 머신] - 2. 프로그램 실행의 원리</title><link href="http://localhost:4000/study/2022/05/30/insideMachine-2.html" rel="alternate" type="text/html" title="[인사이드 머신] - 2. 프로그램 실행의 원리" /><published>2022-05-30T19:30:00+09:00</published><updated>2022-05-30T19:30:00+09:00</updated><id>http://localhost:4000/study/2022/05/30/insideMachine-2</id><content type="html" xml:base="http://localhost:4000/study/2022/05/30/insideMachine-2.html"><![CDATA[<h1 id="2-프로그램-실행의-원리">2. 프로그램 실행의 원리</h1>
+<p><a href="/study/2022/05/30/insideMachine-1.html">1. 컴퓨터 동작의 기본 개념</a> 에서 프로그램은<br />
+<strong>데이터 스트림을 가져와서 코드 스트림에 따라 처리하고 이를 다시 저장하는 과정의 반복</strong> 이라 하였다.<br />
+사실 컴퓨터는 기계어 <strong>1, 0 을 (전기 신호 on/off)</strong> 제외하곤 나머진 이해하지 못한다.<br />
+그러므로 컴퓨터 프로그램을 실행하기 위해서는 모든 명령어를 기계어인 <strong>바이너리표기(2진수)</strong> 해야한다.<br />
+우리가 앞에서 썼던 add A, B, C 와 같은 명령어가 사실은 어떻게 컴퓨터가 처리하는지 알아보자.</p>
+
+<p><br /></p>
+
+<h1 id="연산코드와-기계어">연산코드와 기계어</h1>
+
+<h2 id="어셈블러-언어assembly-language-의-등장">어셈블러 언어(assembly language) 의 등장</h2>
+<ul>
+  <li>컴퓨터의 연산 속도가 증가하고, 메모리가 비약적으로 커지면서 <br />
+프로그래머의 작업 효율을 돕기 위한 사용자 친화적인 개발 환경의 등장.
+    <ul>
+      <li>기존에는 기계어로 프로그램을 작성하였다.
+        <ul>
+          <li>기계어 예시 : 1000100000001000 =&gt; add C, 8, A</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>사람이 읽을 수 있는 프로그램을 기계어로 변환하는 지루한 작업을 자동화해주는 어셈블러</strong>가 등장.
+    <ul>
+      <li>프로그래머는 니모닉, 레지스터 이름, 메모리 주소 등을 이용하여 프로그램을 작성하고, <br />
+ 어셈블러는 이를 기계어로 변환</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="니모닉mnemonic">니모닉(mnemonic)</h3>
+<ul>
+  <li>컴퓨터가 이해할 수 있는 연산코드(opcode)라고 하는 2진수와  <br />
+사람들이 이해할 수 있는 단어 (add, load, store 등)를 대응시켜 <br />
+사람들이 쉽게 기억할 수 있도록 만든 기호.</li>
+  <li>아래는 가상 컴퓨터 DLW-1 의 니모닉과 레지스터의 바이너리 코드 표이다.</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/mnemonic.png" alt="mnemonic" class="lazyload post-img img-w550" />
+<em>가상 컴퓨터 DLW-1 의 니모닉과 레지스터 바이너리 코드.</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>니모닉으로 명령을 실행하게 되면 <br />
+이 니모닉을 컴퓨터가 이해할 수 있는 바이너리로 <span class="tooltip" id="id-1">인코딩</span> 하게 된다.</li>
+</ul>
+
+<h2 id="산술-명령어의-바이너리-인코딩">산술 명령어의 바이너리 인코딩</h2>
+<ul>
+  <li>위의 니모닉과 레지스터 바이너리 코드를 이용한 산술 명령어의 포맷이다.</li>
+  <li>산술 명령어는 2바이트 (16비트) 로 이루어져 있고 아래와 같은 구성이다.
+    <ul>
+      <li>모드(0 비트)
+        <ul>
+          <li>0 : 레지스터들만 사용하는 레지스터형  명령어
+            <ul>
+              <li>add C, D, A</li>
+              <li>소스 목적어 모두 레지스터</li>
+            </ul>
+          </li>
+          <li>1 : 직접값을 사용하는 직접형 명령어
+            <ul>
+              <li>add C, 8, A</li>
+              <li>레지스터와 직접값을 사용</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="레지스터형-산술-명령어-포맷과-변환-예시">레지스터형 산술 명령어 포맷과 변환 예시</h3>
+<p><img src="/assets/img/study-img/inside-machine/register-format.png" alt="register-format" class="lazyload post-img img-w550" />
+<em>레지스터형 명령어 기계어 포맷 예시</em></p>
+
+<p><img src="/assets/img/study-img/inside-machine/register-format-ex.png" alt="imm-format" class="lazyload post-img img-w550" />
+<em>레지스터형 산술 명령어의 기계어 변환 예시</em></p>
+
+<p><br /></p>
+
+<h3 id="직접형-산술-명령어-포맷과-변환-예시">직접형 산술 명령어 포맷과 변환 예시</h3>
+<p><img src="/assets/img/study-img/inside-machine/imm-format.png" alt="imm-format" class="lazyload post-img img-w550" />
+<em>직접값형 명령어 기계어 포맷 예시</em></p>
+
+<p><img src="/assets/img/study-img/inside-machine/imm-format-ex.png" alt="imm-format" class="lazyload post-img img-w550" />
+<em>직접형 산술 명령어의 기계어 변환 예시</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>이처럼 우리가 흔히 쓰는 단어 <strong>load, add 등의 명령어를 어셈블리어가 기계어로 인코딩 하여 컴퓨터는 이를 실행</strong>한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="프로그래밍-모델과-isa">프로그래밍 모델과 ISA</h1>
+<ul>
+  <li>어셈블러를 사용하기 위해서는, 프로그래머가 각 시스템에서 사용 가능한 레지스터의 수, <br />
+명령어의 종류 등에 관한 정확한 정보를 알아야 한다.
+    <ul>
+      <li>add C, D, A 와 같이 쓰기 위해선 무슨 레지스터가 있는지, 어떤 연산이 있는지 정확히 알아야 한다.</li>
+    </ul>
+  </li>
+  <li>프로그램을 수행하기 위한 기기에 대한 잘 정의된 모델의 필요성이 커짐.</li>
+</ul>
+
+<h2 id="프로그래밍-모델">프로그래밍 모델</h2>
+<ul>
+  <li>마이크로프로세서와 프로그래머 사이의 <span class="tooltip" id="id-2">인터페이스</span>.</li>
+  <li>사용자는 프로세서의 실제 복잡한 구현에 관해 모르더라도, <br />
+여러 단계의 <span class="tooltip" id="id-3">추상화</span>를 거친 프로그래밍 모델에 따라서 프로세서의 기능들을 활용할 수 있다.</li>
+  <li>아래 그림은 8개의 레지스터를 가진 컴퓨터의 프로그래밍 모델이다.
+    <ul>
+      <li>ALU</li>
+      <li>I/O (Input/Output) 장치
+        <ul>
+          <li>Load 와 Store 명령에서 메몰와 데이터를 주고 받는 장치.</li>
+        </ul>
+      </li>
+      <li>제어 장치
+        <ul>
+          <li>PC (Program Counter)
+            <ul>
+              <li>프로그램 카운터</li>
+            </ul>
+          </li>
+          <li>IR (Instruction Register)
+            <ul>
+              <li>명령어 레지스터</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/8register-program-model.png" alt="regi-program-model" class="lazyload post-img img-w550" />
+<em>레지스터가 8개인 컴퓨터 프로그래밍 모델</em></p>
+
+<h3 id="명령어-레지스터와-프로그램-카운터">명령어 레지스터와 프로그램 카운터</h3>
+<ul>
+  <li>명령어 레지스터 ( IR : Instruction Register )
+    <ul>
+      <li>다음에 실행될 명령어를 가지고 있는 레지스터.</li>
+    </ul>
+  </li>
+  <li>프로그램 카운터 ( PC : Program Counter )
+    <ul>
+      <li>다음에 실행될 명령어의 주소를 가지고 있는 특수 레지스터.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/alu-storage-register-IR.png" alt="regi-program-model" class="lazyload post-img img-w400" />
+<em>명령어와 데이터 레지스터가 있는 단순한 컴퓨터</em></p>
+
+<p><br /></p>
+
+<h2 id="isainstruction-set-architecture">ISA(Instruction set architecture)</h2>
+<ul>
+  <li>명령어 집합 아키텍쳐.</li>
+  <li>실제 컴퓨터 구조와 상관없이 프로그래머는 프로그래밍 모델에 맞춰 소프트웨어를 만들면  <br />
+ISA 가 이 소프트웨어와 하드웨어 사이에 중재자 역할을 하여 서로다른 하드웨어에서도 호환이 가능하게 해준다.
+    <ul>
+      <li>자세한 내용은 <a href="/study/2022/05/30/insideMachine-ISA.html">마이크로아키텍쳐와 ISA</a>.
+<img src="/assets/img/study-img/inside-machine/ISA.png" alt="ISA" class="lazyload post-img img-w500" />
+<em>ISA 는 여러 세대 하드웨어에 대해 소프트웨어에 일관된 인터페이스를 제공한다.</em></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>따라서 우리는 <strong>프로그래밍 모델을 이용하여 레지스터가 8개가 있다고 가정하고 프로그램을 작성</strong>하면 된다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="프로그램의-실행-원리">프로그램의 실행 원리</h1>
+<ul>
+  <li>니모닉 단락의 가상 컴퓨터 DLW-1 의 명령어 길이가 2 바이트이고, <br />
+메모리 셀이 1바이트를 저장할 경우 DLW-1 의 프로그램이 저장된 메모리는 아래와 같다.
+    <ul>
+      <li>프로그램의 시작 주소는 #500 이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/memory-program.png" alt="ISA" class="lazyload post-img img-w500" />
+<em>베이스 주소가 #500 인 메모리공간에 저장된 프로그램.</em></p>
+
+<h2 id="fetch---execute-cycle">fetch - execute cycle</h2>
+<ul>
+  <li>fetch - execute cycle
+    <ul>
+      <li>fetch 페치
+        <ul>
+          <li>제어 장치는 페치 명령어를 이용해서 프로그램의 명령어들을 메모리에서 명령어 레지스터로 옮겨 놓는다.</li>
+          <li>프로그램 카운터에서 저장된 주소값을 증가시켜 다음 명령어를 읽어올 수 있도록 한다.</li>
+        </ul>
+      </li>
+      <li>decode  디코드
+        <ul>
+          <li>명령어 레지스터상의 명령어를 디코드 한다.
+            <ul>
+              <li>즉 명령어를 해석하여 어떻게 수행할지 결정.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>execute 수행
+        <ul>
+          <li>명령어 레지스터 상의 명령어를 수행한다.
+            <ul>
+              <li>산술 명령어인 경우 ALU 와 레지스터 파일을 이용하여 수행.</li>
+              <li>메모리 접근 명령어의 경우, 메모리 접근 하드웨어를 이용하여 수행.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>약간만 수정하면 대부분 마이크로 프로세서가 프로그램을 실행하는 과정을 설명할 수 있고<br />
+ 이를 페치 - 수행 싸이클(fetch - execute cycle) 이라 한다.</li>
+</ul>
+
+<h2 id="fetch---execute-cycle-exemaple">fetch - execute cycle exemaple</h2>
+<ol>
+  <li>#500 에 저장된 load #12, A <strong>명령어를 페치</strong>하여 명령어 레지스터로 로드. <br />
+   <strong>프로그램 카운터는 다음 명령어인 #502</strong> 로 증가.</li>
+  <li>명령어 레지스터의 load #12, A 를 <strong>디코드</strong>.</li>
+  <li>명령어 레지스터의 load #12, A 를 <strong>수행</strong>.</li>
+  <li>** 프로그램 카운터가 가르키는 #502 명령어를 페치하고 1-3 과정을 반복**.</li>
+</ol>
+
+<h2 id="clock">Clock</h2>
+<ul>
+  <li>페치 - 수행 루프의 3 단계 과정을 처리하는 단위
+    <ul>
+      <li><strong>페치 - 수행 루프는 1 클럭(Clock)에 처리</strong>된다.</li>
+    </ul>
+  </li>
+  <li>클럭은 컴퓨터 내부 마더모드 상의 클럭 생성기에서 만들어진 후, 프로세서 내부로 공급된다.</li>
+  <li>더 빠른 클럭을 사용할 수록 프로그램 수행 속도 역시 빨라질 것이다.</li>
+  <li>CPU 의 속도를 나타내는 지표로 자주 사용된다.
+    <ul>
+      <li>단위 Hz</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="분기-명령어">분기 명령어</h1>
+<ul>
+  <li>프로세서가 프로그램의 원래 <strong>정해진 순서에서 벗어나 특정 명령어로 jump</strong> 하게 해주는 명령어.</li>
+  <li>무조건 분기
+    <ul>
+      <li>명령어
+        <ul>
+          <li>jump #목적주소</li>
+        </ul>
+      </li>
+      <li>프로세서는 단순히 제어 장치에 있는 프로그램 카운터의 값을 <br />
+분기 명령어의 목적 주소로 바꿔준다.</li>
+      <li>프로세서는 다음 클럭에서 프로그램 카운터가 가르키는 주소<br />
+(분기 명령어의 목적 주소) 에서 명령어를 페치하게 된다.</li>
+    </ul>
+  </li>
+  <li>조건 분기
+    <ul>
+      <li>명령어
+        <ul>
+          <li>jumpz #목적주소</li>
+        </ul>
+      </li>
+      <li><strong>특정 조건이 만족될 때에만 분기</strong>한다.</li>
+      <li>PSW(Processor Status Word)
+        <ul>
+          <li>산술 명령어가 수행될 때면, 연산 결과에 따라 다양한 형태의 정보가 PSW 에 저장</li>
+          <li><strong><em>조건 분기를 실행하기 위해 PSW 에 저장되어 있는 값</em></strong>을 통해 분기 명령어의 조건을 확인.</li>
+        </ul>
+      </li>
+      <li>조건 분기 예제
+        <ul>
+          <li>sub A, B, C
+            <ul>
+              <li>레지스터 A의 값에서 레지스터 B의 값을 뻐서 그 결과를 C 에 저장</li>
+            </ul>
+          </li>
+          <li>jumpz #106
+            <ul>
+              <li><strong>PSW 값이 0 이면(즉 바로위 명령 sub 의 결과) 메모리주소 #106 에 저장된 명령어 실행</strong>.</li>
+              <li>PSW 값이 0 이 아니면 순서대로 아래 명령어 실행.</li>
+            </ul>
+          </li>
+          <li>add A, B, C
+            <ul>
+              <li>레지스터 A의 값과 레지스터 B의 값을 더해서 그 결과를 C 에 저장</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="분기-명령어를-이용한-특수-로드">분기 명령어를 이용한 특수 로드</h2>
+<ul>
+  <li>일반적인 로드 명령어와 마찬가지로, 분기 명령어는 레지스터를 사용해서 목적 주소를 지정 가능하다.
+    <ul>
+      <li>jump #C</li>
+      <li>jump #(C + 30)
+        <ul>
+          <li>상대 주소를 목적 주소로 지정 가능.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>이 기법을 사용하면 프로그래머는 분기하는 코드 작성시 <strong>프로그램의 절대 주소를 알 필요가 없다</strong>.
+    <ul>
+      <li>프로그래머는 메모리를 관리하는 운영체제가 해당 코드의 시작 주소를 어디에 저장해두었는지만 알면 된다.</li>
+      <li>코드 세그먼트 기본 주소가 C 에 저장되어 있을때 15번째 명령어로 분기하는 방법은 아래와 같다.
+        <ul>
+          <li>jump #(C + 30)
+            <ul>
+              <li>각 명령어가 2 바이트일때 30바이트는 15번째 명령어를 의미함.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="분기-명령어와-레이블">분기 명령어와 레이블</h2>
+<ul>
+  <li>실제 프로그램에서 분기문의 목적 주소로 직접값이나 상대 주소를 쓰는 경우는 드물고,<br />
+ 레이블을 지정하여 레이블을 분기 명령어로 사용한다.</li>
+  <li>분기 명령어와 레이블 예제</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sub A, B, A   
+  jumpz LBL1    
+  add A, 15, A  
+  store A, #(D + 16) 
+LBL1 : 
+  add A, B, B     
+  store B, #(D + 16) 
+</code></pre></div></div>
+
+<ul>
+  <li>여기서 어셈블리어를 자세하게 다루지 않는다.</li>
+  <li><strong>어셈블리어를 예제로 보여주는 이유는 상대주소를 설명하기 위해서</strong>이다.
+    <ul>
+      <li>따라서 여기서 어셈블리어를 자세히 볼 필요는 없다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="다음-주제">다음 주제</h1>
+<p><a href="/study/2022/05/30/insideMachine-3.html">[인사이드 머신] 병렬화를 통한 성능 향상 - 파이프라인</a></p>
+
+<hr />
+
+<h1 id="부록---부팅">부록 - 부팅</h1>
+<ul>
+  <li>bootstrap 의 줄임말</li>
+  <li>컴퓨터를 처음 키면 메모리상에 아무 프로그램도 없기때문에,<br />
+ 프로세서는 첫 명령어를 미리 지정된 메모리 주소에서 가져온다.
+    <ul>
+      <li>이 저장된 프로그램을 <strong>BIOS</strong> 라고 한다.</li>
+      <li>이 BIOS는 대개 마더보드상의 <strong>ROM(Read Only Memory) 에 저장</strong>된다.
+        <ul>
+          <li>ROM 은 RAM(Random Access Memory)와 다르게 <br />
+읽기전용/<span class="tooltip" id="id-4">비휘발성 메모리</span> 라 BIOS 를 저장하기 알맞다.</li>
+          <li>운영체제를 실행시킬 프로그램위에 누군가 덮어쓰거나, 재부팅시 날라가면 되겠는가?</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>BIOS는 주변 장치에 대한 기본적인 작동을 테스트 한 후, <strong>무조건 분기</strong>를 한다.
+    <ul>
+      <li>이 BIOS의 무조건 분기 <strong>목적 주소는 부트로더의 시작 주소</strong>이다.</li>
+    </ul>
+  </li>
+  <li>BIOS는 컴퓨터의 제어 권한을 부트로더에 넘겨준다.</li>
+  <li>부트로더는 하드 디스크에서 운영체제를 읽어온다.
+    <ul>
+      <li>운영체제가 동작하면 사용자는 컴퓨터를 제어할 수 있게 된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<div class="tooltip-desc">
+    <div class="tooltip-description" id="desc-1">
+    사용자가 입력한 문자나 기호들을 컴퓨터가 이용할 수 있는 신호로 만드는 것
+    </div>
+	  <div class="tooltip-description" id="desc-2">
+    서로 다른 두 개의 시스템, 장치 사이에서 정보나 신호를 주고받는 경우의 접점이나 경계면이다. 즉, 사용자가 기기를 쉽게 동작시키는데 도움을 주는 시스템
+	  </div>
+  	<div class="tooltip-description" id="desc-3">
+	  복잡한 자료, 모듈, 시스템 등으로부터 핵심적인 개념 또는 기능을 간추려 내는 것
+	  </div>
+    <div class="tooltip-description" id="desc-4">
+	  전원이 공급되지 않아도 저장된 정보를 계속 유지하는 컴퓨터 메모리
+	  </div>
+</div>]]></content><author><name></name></author><category term="study" /><category term="inside-the-machine" /><summary type="html"><![CDATA[컴퓨터가 저장된 프로그램을 실행하는 과정과 분기, 페치-수행 루프 등과 같은 핵심적인 프로그래밍 개념을 알아본다.]]></summary></entry><entry><title type="html">[인사이드 머신] - 1. 컴퓨터 동작의 기본 개념</title><link href="http://localhost:4000/study/2022/05/30/insideMachine-1.html" rel="alternate" type="text/html" title="[인사이드 머신] - 1. 컴퓨터 동작의 기본 개념" /><published>2022-05-30T19:20:00+09:00</published><updated>2022-05-30T19:20:00+09:00</updated><id>http://localhost:4000/study/2022/05/30/insideMachine-1</id><content type="html" xml:base="http://localhost:4000/study/2022/05/30/insideMachine-1.html"><![CDATA[<h1 id="1-컴퓨터-동작의-기본-개념">1. 컴퓨터 동작의 기본 개념</h1>
+<p>컴퓨터가 하는 일을 간단하게 표현하여 컴퓨터 구성과 동작의 기본 개념을 쉽게 이해할 수 있다.</p>
+
+<p><br /></p>
+
+<h1 id="컴퓨터-모델">컴퓨터 모델</h1>
+
+<h2 id="계산기-모델">계산기 모델</h2>
+<ul>
+  <li>컴퓨터가 하는 일을 가장 간략하게 단순화 시킨 모델.</li>
+  <li>계산기는 명령어(코드) 스트림과 데이터 스트림을 받아 일련의 결과 스트림을 내보낸다.
+    <ul>
+      <li>코드 스트림(code stream) : 여러 <strong>연산(명령어)</strong>을 순차적으로 나열한 것.</li>
+      <li>데이터 스트림(data stream) : 코드 스트림의 연산을 적용할 <strong>데이터(피연산자)</strong>를 순차적으로 나열한 것.</li>
+      <li>결과 스트림(result stream) : 코드 스트림을 데이터 스트림에 적용한 <strong>연산 결과</strong>를 순차적으로 나열한 것.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/calculator.png" alt="calculator-model" class="lazyload post-img img-w400" />
+<em>계산기 모델</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>수식으로 예를들면 아래와 같다.
+    <ul>
+      <li>데이터 스트림 : 1, 2</li>
+      <li>코드 스트림   : +</li>
+      <li>결과 스트림   : 3</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/calculate.png" alt="calculate" class="lazyload post-img img-w200" />
+<em>데이터 스트림과 코드스트림 그리고 결과 스트림 예시</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>계산기 모델은 다음과 같은 작업을 하는 기기로 표현 가능하다.
+    <ul>
+      <li>데이터를 입력받는다</li>
+      <li>명령어(코드)를 입력받는다</li>
+      <li>데이터와 명령어를 이용해 연산 후 표기한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="문서-관리원-모델">문서 관리원 모델</h2>
+<ul>
+  <li>컴퓨터를 단순 연산만 하는 계산기가 아닌 일련의 데이터를 읽고(read) 수정/계산 한 후 (modify),  <br />
+ 수정한 데이터를 쓰는(write) 기기로 표현한 모델</li>
+  <li>컴퓨터가 읽기-수정-쓰기를 수행하기 위해서는 다음 3가지 기본 요소가 필요하다.
+    <ul>
+      <li>Storage
+        <ul>
+          <li>저장소</li>
+          <li>컴퓨터가 데이터를 Read, Write 할때 이 데이터를 저장 또는 불러올 장소.</li>
+        </ul>
+      </li>
+      <li>ALU (Artimetic Logic Unit)
+        <ul>
+          <li>산술 연산 장치</li>
+          <li>저장소에서 읽어온 데이터와 코드의 명령어를 가지고 산술 연산을 수행하는 장치.</li>
+        </ul>
+      </li>
+      <li>Bus
+        <ul>
+          <li>ALU 와 저장소 사이에서 데이터를 전송하는 통로.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/alu-storage.png" alt="calculator-model" class="lazyload post-img img-w400" />
+<em>문서 관리원 모델  - 코드와 데이터는 논리적으로 다른 공간에 저장된다.</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>문서 관리원 모델은  아래와 같은 작업을 반복하는 기기로 표현 가능하다.
+    <ul>
+      <li>저장소에서 필요한 데이터를 가져온다.</li>
+      <li>저장소에서 필요한 명령어 (코드)를 가져온다.</li>
+      <li>데이터와 명령어로 연산을 수행 후 데이터를 저장한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="성능-향상을-위한-추가-구성요소">성능 향상을 위한 추가 구성요소</h1>
+<ul>
+  <li>문서 관리원은 일련의 데이터를 처리하고 반복하는 작업을 한다.  <br />
+이 반복된 작업을 어떻게 빠르게 처리할 수 있을까? 의 고민에 해답은 아래와 같다.</li>
+</ul>
+
+<h2 id="레지스터-파일--register-file-">레지스터 파일 ( Register File )</h2>
+<ul>
+  <li>실제 연산은 ALU 에서 일어나기 때문에 <strong>저장소의 위치는 ALU 에서 가까운게 좋다.</strong>
+    <ul>
+      <li>연산을 빠르게 수행하기 위해 빠르게 접근할 수 있는 데이터 저장소를 만든다.
+        <ul>
+          <li>이를 <strong>레지스터</strong> 라고 한다.</li>
+        </ul>
+      </li>
+      <li>여러 레지스터가 모인것을 레지스터 파일이라 한다.</li>
+    </ul>
+  </li>
+  <li><span class="tooltip" id="id-1">마이크로프로세서</span> 면적과 같은 현실적 제약 사항을 고려할 때 <strong>ALU 근처의 저장소 공간은 그리 커질 수 없다.</strong>
+    <ul>
+      <li>저장소 공간의 크기가 매우 적어 실제 코드/데이터 스트림의 일부밖에 저장할 수 없다.</li>
+    </ul>
+  </li>
+  <li>즉 ALU 가 연산을 빠르게 하기 위하여  <br />
+<strong>ALU 주변에 코드/데이터 일부를 저장할 작은 저장소를 만들어 연산 속도를 향상</strong>시킨다.</li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/alu-storage-register.png" alt="alu-storage-register" class="lazyload post-img img-w400" />
+<em>레지스터가 결합된 문서 관리원 모델</em></p>
+
+<p><br /></p>
+
+<ul>
+  <li>레지스터가 포함된 ALU 3 단계 작업
+    <ul>
+      <li>덧셈을 할 2 개의 데이터를 지정된 2개의 소스 레지스터로 읽어온다.</li>
+      <li>ALU 를 이용해 두 수를 더한다.</li>
+      <li>연산 결과를 목적 레지스터에 넣는다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="ram">RAM</h2>
+<ul>
+  <li>레지스터 만으로는 매우 많은 양의 데이터를 보관할 수 없기 때문에, <br />
+이를 저장할 저장소로 메인메모리 (RAM : Random Access Memory) 가 그 역할을 한다.
+    <ul>
+      <li>위 그림들에서 Storage 는 사실 RAM 이다.</li>
+      <li>실제 하드디스크는 저렇게 코드와 데이터를 나눠 저장하지 않는다.</li>
+    </ul>
+  </li>
+  <li>ALU 연산을 위해서는 메인 메모리의 데이터 중 일부가 레지스터로 옮겨져 사용된다.</li>
+  <li><strong>ALU 와 레지스터는 같은 마이크로프로세서 내부</strong>에 있지만 <br />
+<strong>메인 메모리와는 실제로 별개로 존재하여 메모리 버스를 통해 마이크로프로세서와 연결</strong>된다.</li>
+  <li>거리가 먼 만큼 메인 메모리의 데이터를 버스를 통해 프로세서로 전송하려면 상당한 시간이 필요하다.
+    <ul>
+      <li>레지스터를 통해 메인 메모리의 데이터를 ALU 근처에 저장할 수 있으므로, <br />
+ALU 는 느린 메인메모리를 기다리지 않아도 된다. <br />
+즉 <strong>컴퓨터 연산 속도는 메인 메모리의 속도에 의해 제한 되지 않는다</strong>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li>RAM(메인 메모리)이 포함된 ALU 4 단계 작업
+    <ul>
+      <li>메인 메모리에서 2 개의 데이터를 읽어서 소스 레지스터에 넣는다.</li>
+      <li>ALU 를 이용해 두 레지스터의 값을 더한다.</li>
+      <li>연산 결과를 목적 레지스터에 넣는다.</li>
+      <li>목적 레지스터에 저장된 덧셈 결과를 메인 메모리로 전송한다.</li>
+    </ul>
+
+    <p><br /></p>
+  </li>
+</ul>
+
+<h1 id="프로그램의-구성과-실행">프로그램의 구성과 실행</h1>
+<ul>
+  <li>그럼 실제 프로그램의 구성과 실행은 어떻게 될까?</li>
+  <li>위의 모델을 기반으로 보면 결과를 내기 위해선 데이터와 코드를 불러오고,<br />
+이를 ALU 를 통해 계산을 한뒤 저장을 한다.
+    <ul>
+      <li>모든 프로그램은 결국 <strong>데이터 스트림을 가져와서 코드 스트림에 따라 처리하고</strong> <br />
+<strong>이를 다시 저장하는 과정의 반복</strong>이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="코드-스트림">코드 스트림</h2>
+<ul>
+  <li>코드 스트림은 연산 (명령어)의 나열로, 단순 덧셈과 뺄샘 같은 간단한 산술 연산만이 아닌, <br />
+여러 명령어(instruction) 의 순차적 나열로 정의할 수 있다.
+    <ul>
+      <li>이를 프로그램 이라 한다.</li>
+    </ul>
+  </li>
+  <li>명령어는 컴퓨터(ALU 뿐만 아닌 컴퓨터 내부의 모든 유닛)가 어떤 일을 수행할지 지정하는 역할도 한다.</li>
+</ul>
+
+<h2 id="명령어의-종류">명령어의 종류</h2>
+<ul>
+  <li>산술 명령어
+    <ul>
+      <li>ALU 의 특정 산술 연산을 담당</li>
+      <li>add, sub, mul, div 등</li>
+    </ul>
+  </li>
+  <li>메모리 접근 명령어
+    <ul>
+      <li>프로세서와 메인 메모리 사이의 데이터 전송을 담당</li>
+      <li>load, store 등</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="간단한-프로그램의-예">간단한 프로그램의 예.</h3>
+<ul>
+  <li>아래와 같이 산술/메모리 명령어 포맷이 있을때 프로그램이 실행되는 예이다.
+    <ul>
+      <li>예제에서 #10 은 메모리주소 10을 뜻한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="산술-명령어-포맷">산술 명령어 포맷</h4>
+<ul>
+  <li>명령어 소스1, 소스2, 목적
+    <ul>
+      <li>add A, B, C // 레지스터 A 와 B 의 값을 더해 C 에 덮어쓴다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="메모리-명령어-포맷">메모리 명령어 포맷</h4>
+<ul>
+  <li>명령어 소스, 목적
+    <ul>
+      <li>load #12, A // 메모리셀 #12 의 내용을 레지스터 A 에 읽어온다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="프로그램-예">프로그램 예</h4>
+<ul>
+  <li>위의 레지스터를 포함한 문서관리원 모델의 계산기 프로그램은 아래와 같은 작업의 반복이다.
+    <ul>
+      <li>load #10, A  // 메모리셀 #10 의 내용을 레지스터 A 에 읽어온다.</li>
+      <li>load #11, B  // 메모리셀 #11 의 내용을 레지스터 B 에 읽어온다.</li>
+      <li>add A, B, C  // 레지스터 A 와 B 의 값을 더해 레지스터 C 에 쓴다.</li>
+      <li>store C, #12 // 덧셈 결과를 레지스터 C 에서 읽어 메모리셀 #12에 쓴다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/program-ex.png" alt="program-ex" class="lazyload post-img img-w550" />
+<em>간단한 덧셈 프로그램의 메모리 예시</em></p>
+
+<p><br /></p>
+
+<h1 id="메모리-접근">메모리 접근</h1>
+<ul>
+  <li>위의 예에서는 프로그래머가 메모리의 어느 위치에 어떤 데이터가 있는지 모두 알아야만 했다.
+    <ul>
+      <li>즉 프로그래머는 모든 메모리 셀의 용도를 미리 정해야만 했다.</li>
+    </ul>
+  </li>
+  <li>실제 프로그램에서는 훨씬 많은 메모리 셀이 존재하므로, <br />
+정확한 메모리 지정이 필요없는 유연한 메모리 접근 방식이 필수적이다.</li>
+  <li><strong>레지스터값을 메모리 주소로 사용할 수 있게 하면 더 유연한 메모리 접근이 가능</strong>하다.</li>
+</ul>
+
+<h2 id="직접값">직접값</h2>
+<ul>
+  <li>레지스터 대신 <strong>직접적인 값을 사용</strong>하는 방식.
+    <ul>
+      <li>A 에 있는 값을 2 증가시키기 위해 2 가 저장된 메모리 셀에서  <br />
+데이터를 레지스터 B 에 읽어온 후 덧셈을 하는 대신 A 에 2 를 직접 더할 수 있다.</li>
+      <li>add A, <strong>2</strong>, A // 레지스터 A 의 값에 <strong>직접값인 2</strong> 를 더해 기존 A 의 값을 덮어쓴다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="직접값-프로그램-예">직접값 프로그램 예</h3>
+<ul>
+  <li>레지스터 D 에 주소 #10 이 저장되어 있다고 가정할 때 아래와 같이 프로그램을 만들 수 있다.
+    <ul>
+      <li>load #10, D  // 메모리셀 #10 의 값(13) 레지스터 D 에 읽어온다.</li>
+      <li>load #D, A   // 레지스터 D의 내용(메모리셀 #13의 값)을 레지스터 A 에 읽어온다.
+        <ul>
+          <li>메모리셀 D 의 값에 # 를 붙인 <strong>주소값 #13 역시 직접값</strong>이다.</li>
+        </ul>
+      </li>
+      <li>load #11, B  // 메모리셀 #11 의 내용을 레지스터 B 에 읽어온다.</li>
+      <li>add A, B, C  // 레지스터 A 와 B 의 값을 더해 레지스터 C 에 쓴다.</li>
+      <li>store C, #12 // 덧셈 결과를 레지스터 C 에서 읽어 메모리셀 #12에 쓴다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/assets/img/study-img/inside-machine/program-ex-imm.png" alt="program-ex" class="lazyload post-img img-w550" />
+<em>메모리 셀에 저장된 주소를 이용해 2개의 수를 더하는 프로그램</em></p>
+
+<p><br /></p>
+
+<h2 id="상대-레지스터-주소-지정">상대 레지스터 주소 지정</h2>
+<ul>
+  <li><strong>기본 주소(base address)</strong>를 저장하고 있는 레지스터와 <br />
+<strong>기본 주소에서의 거리를 통해 접근할 메모리 주소로 표현</strong>하는 방식.</li>
+  <li>절대 주소 지정 대신 상대 레지스터 주소 지정을 사용할 경우,  <br />
+<strong>메모리상에서 데이터의 위치를 정확히 모르는 상태에서도 프로그램을 짤 수 있다.</strong></li>
+  <li>프로그래머가 운영체제에서 <strong>데이터 세그먼트의 기본 주소를 저장하는 곳만 알고 있다면</strong>,  <br />
+상대 주소를 이용하여 모든 메모리 접근을 지정할 수 있다.
+    <ul>
+      <li><strong>데이터 세그먼트</strong>
+        <ul>
+          <li>프로그램의 데이터를 저장하는 연속된 메모리 영역</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>프로그래머가 데이터 세그먼트의 주소를 안다면, 다음과 같은 방식으로 같은 세그먼트 내의 모든 메모리에 접근이 가능하다.
+    <ul>
+      <li><strong>기본주소 + 오프셋</strong>
+        <ul>
+          <li>세그먼트의 기본 주소는 <strong>운영체제가 프로그램을 메모리에 로드할 때 정해지고 미리 알 수 없으므로</strong>, <br />
+절대 주소 지정방식을 사용할 경우 프로그램 로드시마다 모든 주소값이 변경되어, <br />
+주소계산하는 방식이 매우 복잡해지고 오래 걸릴 수 있다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="상대-레지스터-주소-사용-프로그램-예">상대 레지스터 주소 사용 프로그램 예</h3>
+<ul>
+  <li>#D : 메모리 주소 저장을 위한 레지스터, 데이터 세그먼트의 기본 주소를 가지고 있음. <br />
+즉 이 <strong>프로그램의 Base 가 되는 주소</strong>를 가지고 있다.
+    <ul>
+      <li>load #(D + 3), A   // 레지스터 D의 내용(메모리셀 #13의 값)을 레지스터 A 에 읽어온다.</li>
+      <li>load #(D + 1 ), B  // 메모리셀 #11 의 내용을 레지스터 B 에 읽어온다.</li>
+      <li>add A, B, C        // 레지스터 A 와 B 의 값을 더해 레지스터 C 에 쓴다.</li>
+      <li>store C, #(D + 2)  // 덧셈 결과를 레지스터 C 에서 읽어 메모리셀 #12에 쓴다.</li>
+    </ul>
+
+    <p><img src="/assets/img/study-img/inside-machine/program-ex-rel.png" alt="program-ex" class="lazyload post-img img-w550" />
+<em>상대 레지스터 주소를 사용한 프로그램 예</em></p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="다음-주제">다음 주제</h1>
+<p><a href="/study/2022/05/30/insideMachine-2.html">[인사이드 머신] 프로그램 실행의 원리</a></p>
+
+<hr />
+
+<div class="tooltip-desc">
+    <div class="tooltip-description" id="desc-1">
+    microprocessor : 컴퓨터의 중앙 처리장치(CPU) 를 뜻한다.
+    </div>
+</div>]]></content><author><name></name></author><category term="study" /><category term="inside-the-machine" /><summary type="html"><![CDATA[컴퓨터를 가장 간단한 모델부터 추후 발전 과정을 이해하고, 프로그램 구성과 시작을 알아본다]]></summary></entry><entry><title type="html">[인사이드 머신] - 0. 개요와 목차</title><link href="http://localhost:4000/study/2022/05/30/insideMachine-0.html" rel="alternate" type="text/html" title="[인사이드 머신] - 0. 개요와 목차" /><published>2022-05-30T19:10:00+09:00</published><updated>2022-05-30T19:10:00+09:00</updated><id>http://localhost:4000/study/2022/05/30/insideMachine-0</id><content type="html" xml:base="http://localhost:4000/study/2022/05/30/insideMachine-0.html"><![CDATA[<h1 id="인사이드-머신-선정-이유">인사이드 머신 선정 이유</h1>
+<p><strong>컴퓨터 구조</strong>는 개발을 하면서 <strong>꼭 알아야할 CS 지식</strong>이다.<br />
+컴퓨터 구조는 매우 다양한 변화를 걸쳐 매우 복잡한 구조를 가지고 있어 처음부터 보면 이해하기가 어렵다.</p>
+
+<p>하지만 이 책은 컴퓨터를 단순 입력값에 결과만 나타내는 계산기 모델부터  <br />
+저장장치를 추가하고, 캐시를 추가하고 한단계씩 컴퓨터의 프로세서가 발전한 과정을 보여준다.</p>
+
+<p>가장 단순한 계산기 구조부터 한 단계씩 발전하는 과정을 보여주기 때문에  <br />
+컴퓨터 구조에 대한 각 요소에 대한 이해를 하기 쉽다.</p>
+
+<p><br /></p>
+
+<p>그리고 항상 발전 과정마다 왜 이렇게 발전시켰을까? 왜 이런 방법을 사용했을까?  <br />
+를 생각할 수 있기 때문에 최신의 컴퓨터 구조에서 이책에 없는 새로운 요소를 보더라도,  <br />
+이 요소가 생긴 이유와 역할에 대해 쉽게 이해하기가 쉽다.</p>
+
+<p><br /></p>
+
+<p>또한 하드웨서/소프트웨어 상관없이 성능 향상을 위한 방법은 대게 비슷한 양상을 보인다고 생각한다. <br />
+CPU 와 메인 메모리간의 속도 격차를 해소하기 위하여 중간에 저장요소를 추가한다거나 ( 캐시와 같은 ) <br />
+처리자를 병렬화 시키는 방법 등을 사용한다. <br />
+실제로 소프트웨어 개발에서도 속도 향상을 위한 방법으로 중간 버퍼나, <br />
+멀티 쓰레딩을 이용한 병렬화 방싱등을 많이 사용되고 있다.
+실제 소프트웨어 개발에서도 활용할 수 있을거라 생각한다.</p>
+
+<p><br /></p>
+
+<h1 id="목차">목차</h1>
+<ol>
+  <li><a href="/study/2022/05/30/insideMachine-1.html">[인사이드 머신] 컴퓨터 동작의 기본 개념</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-2.html">[인사이드 머신] 프로그램 실행의 원리</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-3.html">[인사이드 머신] 병렬화를 통한 성능 향상 - 파이프라인</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-4.html">[인사이드 머신] 파이프라인 병렬화 - 수퍼스칼랑 수행</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-5.html">[인사이드 머신] 캐시와 분기예측을 이용한 성능 향상</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-6.html">[인사이드 머신] 프론트엔드와 백엔드의 분리 - 스케쥴링</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-7.html">[인사이드 머신] 명령어 수준 병렬성 을 위한 노력 - 트레이스 캐시</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-8.html">[인사이드 머신] 캐시와 시스템 성능</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-9.html">[인사이드 머신] 프로세서의 병렬화 - 코어 듀오, 코어2 듀오의 등장</a></li>
+</ol>
+
+<h1 id="보충">보충</h1>
+<ol>
+  <li><a href="/study/2022/05/30/insideMachine-ISA.html">[인사이드 머신] 마이크로아키텍쳐와 ISA</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-hazard.html">[인사이드 머신] 파이프라인 해저드</a></li>
+  <li><a href="/study/2022/05/30/insideMachine-64bit.html">[인사이드 머신] 64비트 컴퓨터의 등장</a></li>
+</ol>]]></content><author><name></name></author><category term="study" /><category term="inside-the-machine" /><summary type="html"><![CDATA[인사이드 머신을 공부하는 이유와 목차]]></summary></entry><entry><title type="html">[책리뷰]완성된 웹사이트로 배우는 HTML&amp;amp;CSS 웹 디자인</title><link href="http://localhost:4000/study/2022/05/21/html_n_css.html" rel="alternate" type="text/html" title="[책리뷰]완성된 웹사이트로 배우는 HTML&amp;amp;CSS 웹 디자인" /><published>2022-05-21T17:20:00+09:00</published><updated>2022-05-21T17:20:00+09:00</updated><id>http://localhost:4000/study/2022/05/21/html_n_css</id><content type="html" xml:base="http://localhost:4000/study/2022/05/21/html_n_css.html"><![CDATA[<p><img src="/assets/img/book-review/html_n_css.jpg" alt="html_css" class="lazyload post-img img-w300" /><br />
+<a href="https://m.hanbit.co.kr/store/books/book_view.html?p_code=B9882279606">완성된 웹사이트로 배우는 HTML&amp;CSS 웹 디자인</a></p>
+
+<p><br /></p>
+
+<p><strong><em>한빛미디어 &lt;나는 리뷰어다&gt; 활동을 위해서 책을 제공받아 작성된 서평입니다.</em></strong></p>
+
+<p>​</p>
+
+<h1 id="책-소개">책 소개</h1>
+<p>요즘 누구나 쉽게 자신의 홈페이지를 만들 수 있다.  <br />
+  비전공자라 할지라도 프론트엔드에 대한 기본 강의만 들으면 누구나 자신만의 페이지를 가질 수 있다. <br />
+  하지만 이렇게 강의를 듣고 홈페이지를 만들고 보면 어딘가 부족하단 느낌을 지울 수 없을 것이다.<br />
+  <strong><em>“내 홈페이지는 기존 상용 사이트들과 무엇이 다른걸까?”</em></strong> 라는 의문이 생기기 시작한다. <br />
+  이에 대한 답은 인터넷에도 찾기가 어렵다. <br />
+  내가 무엇을 모르는지 어떤점이 부족한지 알기 어렵기 때문에 검색어를 찾기도 어렵다.</p>
+
+<p><br /></p>
+
+<p>이책은 이러한 독자들을 위한 디테일을 알려준다.<br />
+  글꼴, 스크롤 방법, 레이아웃, 버튼 디테일, 다크모드 등 하나하나 따로 찾아보기 어려운 작은 요소들이지만<br />
+  이 각각을 알맞게 홈페이지에 적용하면 아주 큰 차이를 보이는 것들이다.<br />
+  <strong><em>이 책을 통하여 내 홈페이지에 고급스러운 디테일을 추가할 수 있다.</em></strong></p>
+
+<p><br /></p>
+
+<h1 id="대상-독자">대상 독자</h1>
+<p>HTML 와 CSS 등을 기본적으로 다룰줄 알아야 한다. <br />
+  이 책은 초보자들 위한 책이 아닌 스스로 자신의 페이지를 만들 수 있는 사람을 대상으로 한다.<br />
+  <strong><em>자신의 페이지를 한번이라도 스스로 만들어본 사람에게 추천한다.</em></strong>  <br />
+  자신의 페이지를 더 고급스럽게, 더 돋보이게 하고 싶은 사람들에게 아주 적합한 책이다.</p>
+
+<p><br /></p>
+
+<h1 id="다루는-내용">다루는 내용</h1>
+<p>우선 웹 개발을 위해 기본적인 HTML 구조와 자바스크립트 기본, 그리고 기본 도구 사용등을 다룬다. <br />
+ 웹 개발 기본은 정말 기본적인 내용만을 다룬다. <br />
+ 처음을 위한 책은 아니기 때문에 간단한 내용만을 다루므로,  <br />
+ 기초가 필요하다면 다른 책을 먼저 공부하고 와야 한다.</p>
+
+<p><br /></p>
+
+<p>그다음 블로그, 회사, 모바일 웹을 위한 반응형 등 상황에 맞는 예제 페이지 만드는 법과 그 디테일을 다룬다.  <br />
+ 블로그, 회사, 이벤트 사이트등 유형에 따른 여러 예제들을 보여주고 이를 실습한다. <br />
+ 이 유형들은 최근에 많이 보이는 사이트 유형으로 <br />
+ 실습을 통하여 나중에 자신의 홈페이지에 빠르게 자신에 맞게 적용 가능할 것이다.</p>
+
+<p><br /></p>
+
+<p>마지막으로 HTML 과 CSS 를 이용한 개발을 더 쉽고 빠르게 관리하는 방법과,  <br />
+ 오류 발생시 체크리스트 및 대처방법에 대해 다룬다.<br />
+ 아직 웹 개발이 익숙하지 않다면 매우 유용하다.</p>
+
+<p><br /></p>
+
+<h1 id="생각-및-느낀점">생각 및 느낀점</h1>
+<p>​  나 역시 비전공 출신 개발자로서 여러 강의를 듣고 개인 홈페이지를 만들어 운영하고 있다.<br />
+  하지만 상용페이지들에 비해 부족하다고 생각이 자꾸 들어 고치려 했지만<br />
+어디가 부족한 건지, 무엇을 찾아야 하는지 갈피를 잡지 못하고 있었다.<br />
+이 책을 읽고 이제 어디가 부족한거지, 어떤것을 찾아야 하는지 그 방향성을 드디어 잡게 되었다.</p>
+
+<p><br /></p>
+
+<p>또한 여기에서 제공하는 블록, 회사 사이트, 이벤트 사이트, 갤러리 사이트등의 예제들은 정말로 유용하다. <br />
+구조화되어 잘 정리된 이 코드들은 차후 자신의 페이지를 만드는데 정말 큰 도움이 될 것이다.<br />
+물론 이 책이 없어도 해당 코드들을 받을 수 있지만 그냥 다운 받아 붙여넣기 하는 것과<br />
+실제 책으로 공부하고 어떤 내용인지 정확히 알고 이 코드를 활용하는 것과는 다르다.<br />
+정말 디테일을 적재 적소에 활용하기 위해선 책으로 실습을 꼭 해봐야 한다.</p>
+
+<p><br /></p>
+
+<p>웹개발을 한다면 이 책을 꼭 추천하고 싶다.<br />
+수많은 개발자들이 자신의 홈페이지를 포트폴리오로 내세우는 지금<br />
+<strong><em>디테일의 차이가 자신만의 차이점을 돋보여줄 것이다.</em></strong></p>
+
+<hr />]]></content><author><name></name></author><category term="study" /><category term="나는리뷰어다" /><summary type="html"><![CDATA[[한빛미디어 나는 리뷰어다 2022]]]></summary></entry><entry><title type="html">[책리뷰]처음 배우는 딥러닝 챗봇</title><link href="http://localhost:4000/study/2022/03/29/chatbot.html" rel="alternate" type="text/html" title="[책리뷰]처음 배우는 딥러닝 챗봇" /><published>2022-03-29T15:20:00+09:00</published><updated>2022-03-29T15:20:00+09:00</updated><id>http://localhost:4000/study/2022/03/29/chatbot</id><content type="html" xml:base="http://localhost:4000/study/2022/03/29/chatbot.html"><![CDATA[<p><img src="/assets/img/book-review/chatbot.jpg" alt="chatbot" class="lazyload post-img img-w300" /><br />
+<a href="https://www.hanbit.co.kr/store/books/look.php?p_code=B7030488815">처음 배우는 딥러닝 챗봇</a></p>
+
+<p><br /></p>
+
+<p><strong><em>한빛미디어 &lt;나는 리뷰어다&gt; 활동을 위해서 책을 제공받아 작성된 서평입니다.</em></strong></p>
+
+<p>​</p>
+
+<h1 id="책-소개">책 소개</h1>
+<p>비대면 기술이 점점 중요해지는 요즘 카카오톡과 네이버 톡톡 등을 선두로  챗봇 시장이 점점 커지고 있다.</p>
+
+<p>이 책은 챗봇의 가장 기초부터 실제 엔진과 API 그리고 최종적으로 AWS 등을 통한 환경 만들기까지를 다루고 있다.</p>
+
+<p>​<br /></p>
+
+<p>또한 실습 위주의 내용으로 딥러닝 초반에 겪는 이론의 난해함을 해소시켜 누구든 쉽게 접근할 수 있게 한다.</p>
+
+<p>“처음 배우는 딥러닝 챗봇” 제목처럼 <strong><em>시작부터 실제 상용 챗봇 서비스까지 모든 것을 한번에 해결</em></strong>할 수 있게 한다.</p>
+
+<p><br /></p>
+
+<h1 id="대상-독자">대상 독자</h1>
+
+<p>전반적인 내용을 다루고 있기 때문에 딥러닝 또는 챗봇을 <strong><em>“처음 배우는” 독자들이 쉽게 접근</em></strong> 할 수 있을 것이다.</p>
+
+<p><br /></p>
+
+<p>다만 초반 환경설정과 라이브러리 설치에 조금의 어려움을 겪을 순 있다.<br />
+프로그래밍에 완전 초보라면 약간의 삽질과 인내심을 필요로 한다. <br />
+​
+<br /></p>
+
+<h1 id="다루는-내용">다루는 내용</h1>
+
+<p>크게 챗봇의 사례, 파이썬 기초, 챗봇 제작, AWS 환경 구성 등을 다루고 있다.</p>
+
+<p>​
+<br /></p>
+
+<p>사례를 통해 챗봇의 앞으로 가능성과, 개발의 동기를 부여하며,</p>
+
+<p>머신러닝 분야에서 메인이 되는 파이썬 언어의 기초를 다루어 익숙하지 않은 독자들을 배려한다.</p>
+
+<p>​<br /></p>
+
+<p>또한 챗봇 기초가 되는 자연어 처리부터, 엔진까지 처음부터 끝까지 모든 것을 다루며,</p>
+
+<p>AWS 환경 구축을 통해 실제 상용 서비스까지 이루어지도록 도움을 준다.</p>
+
+<p>​<br /></p>
+
+<h1 id="생각-및-느낀점">생각 및 느낀점</h1>
+<p>알파고 이후로 딥러닝이란 단어는 뭐든 해결해주는 마법같은 단어가 되었다.</p>
+
+<p>하지만 실제 딥러닝을 시작하기 위해 책을 편 순간 어려워 보이는 수학 공식들의 나열로 많은 사람들의 발을 멈추게 하였다.</p>
+
+<p><br />
+​</p>
+
+<p>이 책은 특이하게도 이런 <strong><em>수학적인 접근을 과감하게 생략</em></strong>하였다.</p>
+
+<p>실제 챗봇 구현을 위한 라이브러리의 사용과 서비스에 중점을 두었기 때문에</p>
+
+<p><strong><em>수학이라는 장벽 없이 큰 구조의 이해를 돕는 이런 부분이 마음에 들었다.</em></strong></p>
+
+<p>​
+<br /></p>
+
+<p>또한 각 기능을 구현하기 위하여 관련된 라이브러리 하나만 다루지 않고,</p>
+
+<p>여러 라이브러리를 직접 다뤄보고 장단점을 알려주기 때문에</p>
+
+<p>상황에 맞는 라이브러리를 선택하는데 도움을 준다.</p>
+
+<p><br />
+​</p>
+
+<p><strong><em>아직 딥러닝을 입문해보지 않았다면, 또는 딥러닝의 수학적 압박으로 여태 망설이고 있었다</em></strong>면 이 책을 꼭 읽어보길 추천한다.</p>
+
+<p>​</p>
+
+<p>​</p>
+
+<hr />]]></content><author><name></name></author><category term="study" /><category term="나는리뷰어다" /><summary type="html"><![CDATA[[한빛미디어 나는 리뷰어다 2022]]]></summary></entry><entry><title type="html">[GitHub Blog - 10] - HTML 을 이용하여 기본 레이아웃 꾸미기</title><link href="http://localhost:4000/develop/2022/03/26/blog-base-html-layout.html" rel="alternate" type="text/html" title="[GitHub Blog - 10] - HTML 을 이용하여 기본 레이아웃 꾸미기" /><published>2022-03-26T13:20:00+09:00</published><updated>2022-03-26T13:20:00+09:00</updated><id>http://localhost:4000/develop/2022/03/26/blog-base-html-layout</id><content type="html" xml:base="http://localhost:4000/develop/2022/03/26/blog-base-html-layout.html"><![CDATA[<h1 id="목표-레이아웃">목표 레이아웃</h1>
+<p>아래와 같은 레이아웃을 만드는걸 목표로 한다.<br />
+실제 이 사이트는 푸터(Footer) 를 쓰지 않지만, <br />
+연습을 위해 아래 사진의 검정 부분에 푸터를 만들어 본다. <br />
+<img src="/assets/img/post-img/base-layout/base.png" alt="base" class="lazyload post-img img-w750" /></p>
+<ul>
+  <li>초록
+    <ul>
+      <li>네비바(Navigation Bar)</li>
+      <li>웹사이트 메뉴로, 웹 사이트를 탐색하기 위한 링크를 가지고 있다.</li>
+    </ul>
+  </li>
+  <li>빨강
+    <ul>
+      <li>헤더(Header)</li>
+      <li>해당 페이지나, 카테고리의 제목을 나타낸다.</li>
+    </ul>
+  </li>
+  <li>파랑
+    <ul>
+      <li>컨텐츠(Contents)</li>
+      <li>실제 페이지의 내용을 표시한다.</li>
+    </ul>
+  </li>
+  <li>검정
+    <ul>
+      <li>푸터(Footer)</li>
+      <li>보통 사이트 연락처, 사이트맵, 저작권 정보 등을 표기한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p>위와 같은 구성으로 간단히 만들어 보자.</p>
+
+<p><br /></p>
+
+<h1 id="html">HTML</h1>
+<p><strong><em>HTML 은 인터넷 웹 문서의 구조와 형태를 표현하고 꾸며주는 역할</em></strong>을 한다. <br />
+기본적으로 웹 페이지를 구성하기 위해선 HTML 을 이용하여 페이지를 구성해야 한다.<br />
+HTML 을 쓸 줄 모른다면 아래 링크를 읽어보자.</p>
+
+<p><br />
+너무 많아 어려울거 같다면 아래 태그들만 읽기를 추천한다.  <br />
+나머지 태그는 모르는게 나올때 해당 링크에서 찾아보면 된다.<br />
+어짜피 못외운다.  <br />
+<br /></p>
+
+<p><strong><em>꼭 봐야하는 태그</em></strong> : &lt;header&gt; &lt;main&gt; &lt;footer&gt; &lt;nav&gt; &lt;a&gt; &lt;link&gt; &lt;div&gt; &lt;span&gt; &lt;img&gt; <br />
+<a href="/study/2022/03/09/html-tag.html">[HTML] 자주 쓰이는 HTML 태그</a></p>
+
+<p><br /></p>
+
+<h2 id="html-구성-꾸며보기">HTML 구성 꾸며보기</h2>
+<p>위에 자주쓰이는 HTML 태그를 보면 <strong><em>콘텐츠 구획</em></strong> 란이 있다.<br />
+이 콘텐츠 구획을 이용하여 HTML 문서를 체계적으로 구성하면 <br />
+개발할때 그리고 나중에 유지보수에 도움이 된다. <br />
+(일주일만 지나도 내가 짠걸 기억못할 수 있기 때문에, <br />
+속성 이름이나 이 구획만 보고 이게 어떤 목적이였는지 알 수 있는게 좋다. )</p>
+
+<p><br /></p>
+
+<p>우선 위에서 나눈 각 구획을 태그를 이용하여 나타내보자.<br />
+나누는 구분은 자신이 정하는 것이다. <br />
+정답은 없고, 나중에 봤을때 이게 어떤 의도로 만들어진 구획인지 파악이 가능하면 된다.</p>
+
+<ul>
+  <li>초록 네비바 : &lt;nav&gt; 태그</li>
+  <li>빨강 헤더   : &lt;header&gt; 태그</li>
+  <li>파랑 컨텐츠 : &lt;main&gt; 태그</li>
+  <li>검정 푸터   : &lt;footer&gt; 태그</li>
+</ul>
+
+<p><br /></p>
+
+<p>이제 지난번에 만든 HTML 문서를 ( default.html ) 보자.<br />
+기억이 안난다면 <a href="/develop/2022/01/17/blog-base-page2.html">[GitHub Blog - 6] - 기본 접속페이지 index.html 만들기</a> 여기를 참조하자.</p>
+
+<p><img src="/assets/img/post-img/base-layout/default.png" alt="default" class="lazyload post-img img-450" /></p>
+
+<p>위의 페이지는 jekyll 에서 기본으로 제공하는 페이지를 수정한 페이지이다.<br />
+보면 &lt;header&gt;, &lt;main&gt;, &lt;footer&gt; 태그를 이미 쓰고있다.<br />
+위의 구획들은 보편적으로 쓰이는 태그로 <br />
+다른 웹페이지를 분석할때 이 태그들을 따라 분석하면 도움이 많이 된다.</p>
+
+<p><br /></p>
+
+<p>&lt;nav&gt; 태그가 없으니 추가하자.<br />
+include 를 써서 재활용할 예정이므로 _includes 폴더안에 nav.html 을 만들고<br />
+아래와 같이 &lt;nav&gt; 태그를 만든다.   <br />
+( 네비바는 모든페이지의 좌측에 존재할 것이기 때문에 모든 페이지마다 네비바를 붙여 넣을 것이다.<br />
+따라서 nav.html 을 만들고 include 하면 모든 페이지마다 재사용이 가능하다. )</p>
+
+<p>_include/nav.html</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;nav class="site-nav"&gt;
+네비게이션바
+&lt;/nav&gt;
+</code></pre></div></div>
+
+<p>만들었으면 기존 default.html 에서 &lt;header&gt; 의 위에 위치시키자.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/img/post-img/base-layout/default-2.png" alt="default2" class="lazyload post-img img-450" /></p>
+
+<p>nav.html 의 위치는 &lt;body&gt; 의 맨위에 위치시키자.<br />
+이유는 각 요소의 배치 순서는 좌-&gt;우, 상-&gt;하 이기 때문에 네비바를 맨 위에 위치하거나,  <br />
+좌측에 위치할 경우 &lt;body&gt; 요소중 제일 위에 있는게 좋다.<br />
+(만약 제일 우측에 위치하고 싶으면 &lt;body&gt; 의 제일 오른쪽에 위치하자)</p>
+
+<p><br />  <br />
+그럼 이제 127.0.0.1:4000 로 들어가 확인해보자.<br />
+아래와 같이 네이게이션바를 추가하였다.</p>
+
+<p><img src="/assets/img/post-img/base-layout/default-page.png" alt="default-page" class="lazyload post-img img-450" /></p>
+
+<p><br /></p>
+
+<p>이제 기본적인 HTML 구조를 만들었으니 다음은 CSS 를 이용하여 <br />
+적절한 부분을 적절한 곳에 위치시키고 꾸며 보자.</p>
+
+<h1 id="다음-주제">다음 주제</h1>
+<ul>
+  <li><a href="/develop/2022/03/15/blog-base-layout-css.html">[GitHub Blog - 11] - CSS 를 이용하여 기본 레이아웃 꾸미기</a></li>
+</ul>]]></content><author><name></name></author><category term="develop" /><category term="blog" /><category term="html" /><category term="css" /><category term="Front-End" /><summary type="html"><![CDATA[HTML 을 이용하여 기본 레이아웃을 만들어 보자.]]></summary></entry></feed>
