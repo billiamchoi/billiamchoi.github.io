@@ -39,12 +39,6 @@ plugins:
 category_dir: category/
 tag_dir: tag/
 
-defaults:
-  - scope:
-      path: "" # 모든 경로에 적용
-      type: "posts" # 게시물에만 적용
-    values:
-      img-tag: "css"
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
