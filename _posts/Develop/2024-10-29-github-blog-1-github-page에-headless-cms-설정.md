@@ -32,6 +32,4 @@ img-tag: github
 
 Github Page는 정적 웹사이트를 호스팅할 수 있고 Jekyll을 이용해 정적 사이트를 빌드하여 호스팅한다. 
 
-</br>
-
 ***두번째 조건***을 Github Pages에 구현하기 위해서 Headless CMS 서비스를 Github Pages에 연동하는 것을 해야 한다.
