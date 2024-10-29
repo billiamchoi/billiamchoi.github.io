@@ -1,11 +1,3 @@
-backend:
-  name: git-gateway
-  repo: "billiamchoi/billiamchoi.github.io" # GitHub 사용자명과 저장소명
-  branch: master # 콘텐츠가 저장될 브랜치
-
-media_folder: "assets/img" # Folder where images will be uploaded
-public_folder: "/assets/img" # Path to access images in posts
-
 collections:
   - name: "bugs"
     label: "Bugs"
@@ -16,7 +8,13 @@ collections:
       - { label: "Layout", name: "layout", widget: "string", default: "post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm:ss Z" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          dateFormat: "YYYY-MM-DD",
+          timeFormat: "HH:mm:ss Z",
+        }
       - { label: "Categories", name: "categories", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", allow_add: true }
       - { label: "Body", name: "body", widget: "markdown" }
@@ -30,7 +28,13 @@ collections:
       - { label: "Layout", name: "layout", widget: "string", default: "post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm:ss Z" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          dateFormat: "YYYY-MM-DD",
+          timeFormat: "HH:mm:ss Z",
+        }
       - { label: "Categories", name: "categories", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", allow_add: true }
       - { label: "Body", name: "body", widget: "markdown" }
@@ -44,7 +48,13 @@ collections:
       - { label: "Layout", name: "layout", widget: "string", default: "post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime", dateFormat: "YYYY-MM-DD", timeFormat: "HH:mm:ss Z" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          dateFormat: "YYYY-MM-DD",
+          timeFormat: "HH:mm:ss Z",
+        }
       - { label: "Categories", name: "categories", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", allow_add: true }
       - { label: "Body", name: "body", widget: "markdown" }
