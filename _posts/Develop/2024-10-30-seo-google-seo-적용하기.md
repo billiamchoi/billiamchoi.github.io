@@ -38,6 +38,6 @@ img-tag: blog
    ![](/assets/img/confirned.png)
 8. Sitemaps 탭에 이동하여 sitemap,xml을 빈칸에 작성하고 사이트맵을 제출한다.
 
-![](/assets/img/sitemap.png)
+   ![](/assets/img/sitemap.png)
 
 초기 세팅 끝이다.
