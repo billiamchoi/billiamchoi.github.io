@@ -33,13 +33,11 @@ img-tag: blog
 5. git push해서 변경점을 원격 레포지토리에 반영한다.
 6. 소유권 확인창의 확인 버튼을 눌러 확인한다.\
    (시간이 조금 소요될 수 있음)
-7.  소유권이 확인되면 속성으로이동 버튼을 눌러 이동한다.
+7. 소유권이 확인되면 속성으로이동 버튼을 눌러 이동한다.
 
    ![](/assets/img/confirned.png)
 8. Sitemaps 탭에 이동하여 sitemap,xml을 빈칸에 작성하고 사이트맵을 제출한다.
 
-   ![](/assets/img/sitemap.png)
-
-
+![](/assets/img/sitemap.png)
 
 초기 세팅 끝이다.
