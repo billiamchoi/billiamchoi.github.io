@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "[Github Blog-1] 블로그 프로젝트 목표 설정"
+title: "[GitHub Blog-1] 블로그 프로젝트 목표 설정"
 description: 블로그 프로젝트 시작에 앞서 목표 설정에 대해 다룹니다.
 date: 2024-10-29T16:47:00 +09:00
 categories: develop
 keyword:
   - HeadlessCMS
 tags:
-  - github
   - jekyll
+  - blog
 img-tag: github
 ---
 ![]()
