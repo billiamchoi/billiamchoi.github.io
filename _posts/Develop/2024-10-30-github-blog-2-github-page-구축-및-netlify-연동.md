@@ -91,7 +91,7 @@ img-tag: github
        label: "Bugs"
        folder: "_posts/Bugs"
        create: true
-       slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+       slug: "{% raw %}{{year}}-{{month}}-{{day}}-{{slug}}{% endraw %}"
        fields:
          - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
          - { label: "Title", name: "title", widget: "string" }
@@ -102,7 +102,7 @@ img-tag: github
              widget: "datetime",
              dateFormat: "YYYY-MM-DD",
              timeFormat: "HH:mm:ss Z",
-             default: "{{now}}",
+             default: "{% raw %}{{now}}{% endraw %}",
            }
          - {
              label: "Categories",
@@ -143,7 +143,7 @@ img-tag: github
        label: "Develop"
        folder: "_posts/Develop"
        create: true
-       slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+       slug: "{% raw %}{{year}}-{{month}}-{{day}}-{{slug}}{% endraw %}"
        fields:
          - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
          - { label: "Title", name: "title", widget: "string" }
@@ -154,7 +154,7 @@ img-tag: github
              widget: "datetime",
              dateFormat: "YYYY-MM-DD",
              timeFormat: "HH:mm:ss Z",
-             default: "{{now}}",
+             default: "{% raw %}{{now}}{% endraw %}",
            }
          - {
              label: "Categories",
@@ -195,7 +195,7 @@ img-tag: github
        label: "Study"
        folder: "_posts/Study"
        create: true
-       slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+       slug: "{% raw %}{{year}}-{{month}}-{{day}}-{{slug}}{% endraw %}"
        fields:
          - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
          - { label: "Title", name: "title", widget: "string" }
@@ -206,7 +206,7 @@ img-tag: github
              widget: "datetime",
              dateFormat: "YYYY-MM-DD",
              timeFormat: "HH:mm:ss Z",
-             default: "{{now}}",
+             default: "{% raw %}{{now}}{% endraw %}",
            }
          - {
              label: "Categories",
