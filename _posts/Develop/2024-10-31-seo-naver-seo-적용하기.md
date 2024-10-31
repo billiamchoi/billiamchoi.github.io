@@ -16,9 +16,9 @@ img-tag: blog
 
 ### 1. 웹마스터 도구 방문 및 사이트 등록
 
-### 2.
+### 2. 사이트 소유확인
 
-### 3.
+### 3. 사이트맵 제출
 
 - - -
 
@@ -40,4 +40,19 @@ img-tag: blog
 
 2. 다운받은 파일을 프로젝트 root 디렉토리에 저장하고\
    원격 Git repository에 push한다.
-  ![](/assets/img/folder2.png)
+
+![](/assets/img/folder2.png)
+
+3. 사이트 소유가 확인되면 아래와 같은 알림이 뜬다.
+
+   ![](/assets/img/veridone.png)
+
+## 3. 사이트맵 제출
+
+1. 요청 -> 사이트맵 제출을 클릭하여 자신의 블로그 주소/sitemap.xml을 입력하고 확인을 누르면 된다.
+
+   ![](/assets/img/sitemap_regi.png)
+
+
+
+초기 세팅 끝
