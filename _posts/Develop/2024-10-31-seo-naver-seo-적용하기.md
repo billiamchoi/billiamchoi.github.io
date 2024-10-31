@@ -26,30 +26,30 @@ img-tag: blog
 
 ## 1. 웹마스터 도구 방문 및 사이트 등록
 
-1. 방문하게되면 아래와 같이  이용 동의 팝업이 뜬다.\
+- 방문하게되면 아래와 같이  이용 동의 팝업이 뜬다.\
    이에 동의를 누른다.
      ![](/assets/img/agree.png)
-2. 사이트 등록 페이지에서 자신의 GitHub Pages 주소를 입력하고 등록한다.
+- 사이트 등록 페이지에서 자신의 GitHub Pages 주소를 입력하고 등록한다.
    ![](/assets/img/regi_site.png)
 
 ## 2. 사이트 소유확인
 
-1. 사이트 소유확인 사이트에서 HTML 확인 파일을 클릭하여 파일을 다운받는다.
+- 사이트 소유확인 사이트에서 HTML 확인 파일을 클릭하여 파일을 다운받는다.
 
   ![](/assets/img/naver_verification.png)
 
-2. 다운받은 파일을 프로젝트 root 디렉토리에 저장하고\
+- 다운받은 파일을 프로젝트 root 디렉토리에 저장하고\
 원격 Git repository에 push한다.
 
 ![](/assets/img/folder2.png)
 
-3. 사이트 소유가 확인되면 아래와 같은 알림이 뜬다.
+- 사이트 소유가 확인되면 아래와 같은 알림이 뜬다.
 
 ![](/assets/img/veridone.png)
 
 ## 3. 사이트맵 제출
 
-1. 요청 -> 사이트맵 제출을 클릭하여 자신의 블로그 주소/sitemap.xml을 입력하고 확인을 누르면 된다.
+- 요청 -> 사이트맵 제출을 클릭하여 자신의 블로그 주소/sitemap.xml을 입력하고 확인을 누르면 된다.
 
    ![](/assets/img/sitemap_regi.png)
 
