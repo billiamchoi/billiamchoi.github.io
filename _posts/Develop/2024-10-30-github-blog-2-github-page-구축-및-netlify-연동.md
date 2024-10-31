@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "[GitHub Blog-2] GitHub Page 구축 및 Netlify 연동"
-description: GitHub Page 구축하고 Netlify 초기 설정법에 대해 배운다.
+title: "[GitHub Blog-2] GitHub Page 구축 및 Netlify Admin Page 생성"
+description: GitHub Page 구축하고 Netlify Admin Page 생성하는 법에 대해 다룬다.
 date: 2024-10-30T14:04:00 +09:00
 categories: develop
 keyword:
   - HeadlessCMS
   - ""
 tags:
-  - blog
   - jekyll
+  - blog
 img-tag: github
 ---
 # 목차
