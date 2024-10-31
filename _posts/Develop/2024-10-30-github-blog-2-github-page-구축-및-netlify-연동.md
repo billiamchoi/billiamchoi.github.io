@@ -18,7 +18,7 @@ img-tag: github
 
 ### 2. Netlify Admin Page 생성
 
-### 3. Git push 후 admin 페이지 확인
+### 3. Git push 후 Admin Page 확인
 
 - - -
 
@@ -284,7 +284,7 @@ img-tag: github
 
         * 로그인 처리, 회원가입, 초기 사용자 등록 시 초기 비밀번호 설정에 필수적인 라이브러리
 
-## 3. Git push 후 admin 페이지 확인
+## 3. Git push 후 Admin Page 확인
 
 1. 변경점을 git push를 통해 원격 레포지토리에 적용
 2. 자신의 GitHub Pages /admin으로 방문하여 아래와 같은 화면이 나오는지 확인
