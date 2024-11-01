@@ -11,7 +11,6 @@ tags:
   - blog
 img-tag: github
 ---
-![]()
 
 # 목차
 
