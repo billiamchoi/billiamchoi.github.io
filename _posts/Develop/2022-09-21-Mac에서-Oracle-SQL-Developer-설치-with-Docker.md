@@ -1,12 +1,15 @@
 ---
 layout: post
-title: "Mac에서 Oracle SQL Developer 설치 with Docker"
-description: "Mac에서 Oracle SQL Developer 설치를 Docker를 사용해서 해보자"
+title: Mac에서 Oracle SQL Developer 설치 with Docker
+description: Mac에서 Oracle SQL Developer 설치를 Docker를 사용해서 해보자
 date: 2022-09-21T16:47:00 +09:00
 categories: develop
 keyword:
   - oracle
-tags: ["MacOS","docker","Oracle"]
+tags:
+  - MacOS
+  - docker
+  - Oracle
 img-tag: study
 ---
 
@@ -14,10 +17,10 @@ img-tag: study
 
 순서는 다음과 같다.
 
-**1. JDK 8버전 설치**
-**2. Docker 설치**
-**3. docker-oracle-xe-11g docker image pull**
-**4. Oracle SQL Developer 설치**
+**1. JDK 8버전 설치**\
+**2. Docker 설치**\
+**3. docker-oracle-xe-11g docker image pull**\
+**4. Oracle SQL Developer 설치**\
 **5. Docker Container 구동 및 SQL Developer 초기 설정**
 
 ## **1. JDK 8버전 설치**
