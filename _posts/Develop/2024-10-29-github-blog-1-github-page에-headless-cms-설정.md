@@ -11,9 +11,8 @@ tags:
   - blog
 img-tag: github
 ---
-![]()
 
-# [](https://martinkang.github.io)목차
+# 목차
 
 ### 1. 목표 설정
 
