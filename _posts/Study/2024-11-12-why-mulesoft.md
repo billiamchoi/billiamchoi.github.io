@@ -24,7 +24,7 @@ img-tag: study
 
 ## 1. SI의 변화
 
-![](/assets/img/si_변화.png)
+![](/assets/img/si_변화.22.png)
 
-- SI에서 개발 방법은 총 3개의 트랜드로 변화하였다.
-- point to point 에서 ESB를 거쳐 MSA에 도달할 때 까지 API 관리의 중요성을 더 높아졌다.
+* SI에서 개발 방법은 총 3개의 트랜드로 변화하였다.
+* point to point 에서 ESB를 거쳐 MSA에 도달할 때 까지 API 관리의 중요성을 더 높아졌다.
