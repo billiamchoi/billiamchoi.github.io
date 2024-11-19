@@ -8,7 +8,7 @@ keyword:
   - MuleSoft
 tags:
   - Back-End
-img-tag: study
+img-tag: mulesoft
 ---
 ## 개요
 
