@@ -63,14 +63,27 @@ collections:
               agile,
               waterfall,
               CRM,
-              Salesforce
+              Salesforce,
+              MuleSoft,
             ],
         }
       - {
           label: "Image Tag",
           name: "img-tag",
           widget: "select",
-          options: [blog, github, jekyll, html, css, study],
+          options:
+            [
+              blog,
+              github,
+              jekyll,
+              html,
+              css,
+              study,
+              mulesoft,
+              docker,
+              java,
+              js,
+            ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -130,14 +143,27 @@ collections:
               agile,
               waterfall,
               CRM,
-              Salesforce
+              Salesforce,
+              MuleSoft,
             ],
         }
       - {
           label: "Image Tag",
           name: "img-tag",
           widget: "select",
-          options: [blog, github, jekyll, html, css, study],
+          options:
+            [
+              blog,
+              github,
+              jekyll,
+              html,
+              css,
+              study,
+              mulesoft,
+              docker,
+              java,
+              js,
+            ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -197,13 +223,26 @@ collections:
               agile,
               waterfall,
               CRM,
-              Salesforce
+              Salesforce,
+              MuleSoft,
             ],
         }
       - {
           label: "Image Tag",
           name: "img-tag",
           widget: "select",
-          options: [blog, github, jekyll, html, css, study],
+          options:
+            [
+              blog,
+              github,
+              jekyll,
+              html,
+              css,
+              study,
+              mulesoft,
+              docker,
+              java,
+              js,
+            ],
         }
       - { label: "Body", name: "body", widget: "markdown" }
