@@ -102,3 +102,64 @@ Cofigure 버튼을 눌러 Add Maven Dependency를 클릭한다.
 
 URL 형식이 jdbc:mariadb:// 이고
 Driver class name인 org.mariadb.jdbc.Driver 인 것이다.
+
+## 4. Message Flow 구현
+
+해당 글에서 거시적으로 접근하고자 한다.
+
+아래 그림이 구현하고자 하는 .플로우이다.
+
+해당 플로우에 대한 정보는 다음과 같다.
+
+sourceDB의 데이터베이스이름과 테이블 이름으로 해당 테이블의 메타데이터를 조회하고
+
+해당 테이블의 primary key column에 대한 메타데이터를 조회하는 flow이다.
+
+해당 플로우에서는 3개의 변수를 사용한다.
+
+1. 데이터베이스 이름
+2. 테이블 이름
+3. sourceDB에서 쿼리 결과값
+
+![](/assets/img/custom_flow.png)
+
+아래에는 Query Metadata from sourceDB의 SQL과 input parameters이다.
+
+MuleSoft에서 input parameter 변수 사용 시, SQL에서는 :변수이름으로 사용하고 
+
+input parameter에는 json객체로 선언하고 키는 사용할 변수명, 값에는 사용할 값을 기입한다. 
+
+flow 내 선언한 변수를 사용할 경우 vars.선언한 변수 이름으로 접근 가능하다.
+
+```
+// SQL
+
+SELECT 
+    COLUMN_NAME,         
+    DATA_TYPE,         
+    CHARACTER_MAXIMUM_LENGTH AS MAX_LENGTH, 
+    IS_NULLABLE,         
+    COLUMN_KEY,           
+    COLUMN_DEFAULT,      
+    EXTRA                
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE TABLE_SCHEMA = :database_name  
+  AND TABLE_NAME = :table_name
+  AND COLUMN_KEY = 'PRI'; 
+
+// input-parameters  
+
+{	
+  database_name: vars.database_name,
+  table_name: vars.table_name
+}
+```
+
+위와 같은 방법으로 flow를 구현하고 이를 테스트 한 결과는 다음과 같다.
+
+
+
+![](/assets/img/test_result.png)
+
+
+테스트 결과, 설정한 변수로 지정된 데이터베이스명과 테이블명에 따라, 기본 키 컬럼의 메타데이터를 조회할 수 있음을 확인하였다.
