@@ -11,7 +11,7 @@ tags:
   - Back-End
 img-tag: study
 ---
-# Azure Terraform Ansible
+# Azure Terraform
 
 ---
 
