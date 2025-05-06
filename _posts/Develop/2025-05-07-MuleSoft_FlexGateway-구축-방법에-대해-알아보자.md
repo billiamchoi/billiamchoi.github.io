@@ -374,3 +374,4 @@ sudo firewall-cmd --zone=public --list-ports
 ![alt text](/assets/img/13_finish.png)
 
 8. postman으로 해당 Instance를 호출 하여 정상 응답이 오는지 Postman으로 테스트한다.
+
