@@ -22,7 +22,7 @@ img-tag: mulesoft
 
 #### 2. 서버 구성 및 구동
 
-#### 3. MuleSoft Standalone 다운로드
+#### 3. MuleSoft Standalone 다운로드E;
 
 #### 4. MobaXterm 다운로드
 
@@ -908,10 +908,10 @@ Elasticsearch 기본으로 9200포트로 통신함
 
 2. 통신포트 개방 및 리로드
 
-{Elasticsearch 통신 포트}를 상황에 맞게 조정
+9200을{Elasticsearch 통신 포트}를 상황에 맞게 조정
 
 ```bash
-$ firewall-cmd --permanent --add-port={{Elasticsearch 통신 포트}/tcp}
+$ firewall-cmd --permanent --add-port={9200}/tcp}
 $ firewall-cmd --reload
 ```
 
