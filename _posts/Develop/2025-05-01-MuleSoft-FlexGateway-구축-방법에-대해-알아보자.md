@@ -2,7 +2,7 @@
 layout: post
 title: "[MuleSoft] MuleSoft FlexGateway 구축방법에 대해 알아보자"
 description: MuleSoft FlexGateway 구축방법에 대해 알아보자
-date: 2025-05-07T11:05:00 +09:00
+date: 2025-05-01T11:05:00 +09:00
 categories: develop
 keyword:
   - MuleSoft
