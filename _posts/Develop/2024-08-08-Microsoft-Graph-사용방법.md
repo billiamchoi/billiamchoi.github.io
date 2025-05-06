@@ -144,7 +144,7 @@ img-tag: study
 
 링크: https://developer.microsoft.com/en-us/graph/graph-explorer
 
-![microsoft graph](images\microsoftGraph.png)
+![microsoft graph](/assets/img/microsoftGraph.png)
 
 1. my mail 클릭
 
@@ -162,7 +162,7 @@ img-tag: study
 
 **실행결과**
 
-![postmandone](images\postmandone.png)
+![postmandone](/assets/img/postmandone.png)
 
 ## 5. Troubleshooting
 
@@ -170,11 +170,11 @@ img-tag: study
 
 #### 5.1. The user or administrator has not consented to use the application with ID
 
-![ts1](images\ts1.png)
+![ts1](/assets/img/ts1.png)
 
 #### 해결방법 
 
-![ts1_s](images\ts1_s.png)
+![ts1_s](/assets/img/ts1_s.png)
 
 1. 해당 Application으로 이동하여, 왼쪽 탭의 API permissons를 클릭
 2. Grant admin consent for MSFT 버튼을 눌러 해당 앱을 관리자가 승낙하도록 함
